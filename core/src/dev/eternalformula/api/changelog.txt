@@ -1,0 +1,11 @@
+EF RPG API Changelog (Alpha 0.0.1)
+  Date: 02/08/23
+
+- Created EFAPI class
+- Created EFDebug class
+- Created changelog.txt
+- Created some example classes (super sick btw)
+- Built basic SceneManager interface
+- Added ViewportHandler
+
+DEVNOTE: Welcome to the EF RPG API! :)
