@@ -9,7 +9,9 @@ package dev.eternalformula.api.util;
 
 public class EFGFX {
 	
-	public static final float DEFAULT_UPP = 1/16f;
+	public static final float PPM = 16f;
+	
+	public static final float DEFAULT_UPP = 1/32f;
 	
 	public static final int DEFAULT_WIDTH = 640;
 	public static final int DEFAULT_HEIGHT = 360;

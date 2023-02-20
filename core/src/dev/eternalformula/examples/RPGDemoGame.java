@@ -22,14 +22,12 @@ public class RPGDemoGame extends ApplicationAdapter {
 		
 		// Scene Creation
 		SceneManager.getInstance().setCurrentScene(new GameScene());
-		Gdx.graphics.setWindowedMode(1080, 720);
 	}
 	
 	 @Override
 	public void render() {
 		super.render();
 		
-		EFDebug.info("new loop");
 		float delta = Gdx.graphics.getDeltaTime();
 		
 		SceneManager sm = SceneManager.getInstance();
@@ -39,7 +37,6 @@ public class RPGDemoGame extends ApplicationAdapter {
 			sm.draw(delta);
 			sm.drawUI(delta);
 		}
-		
 	}
 	 
 	@Override

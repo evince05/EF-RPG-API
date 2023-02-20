@@ -18,5 +18,14 @@ public class EFDebug {
 	public static void debug(String msg) {
 		Gdx.app.debug("DEBUG", msg);
 	}
+	
+	public static void warn(String msg) {
+		Gdx.app.log("WARN", msg);
+	}
+	
+	public static void error(String msg) {
+		Gdx.app.log("ERROR", msg);
+	}
+
 
 }

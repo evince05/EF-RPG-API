@@ -62,5 +62,7 @@ project(":core") {
         api "com.badlogicgames.ashley:ashley:$ashleyVersion"
         api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         
+        implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+        
     }
 }

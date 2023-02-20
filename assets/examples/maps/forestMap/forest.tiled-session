@@ -1,0 +1,30 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+        "objects",
+        "."
+    ],
+    "fileStates": {
+        "forestMap.tmx": {
+            "scale": 3.1943749999999995,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 160.28174525533166,
+                "y": 120.21130894149873
+            }
+        },
+        "forestObjects.tsx": {
+            "scaleInDock": 1
+        },
+        "forestTileset.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        }
+    },
+    "openFiles": [
+    ],
+    "project": "forest.tiled-project",
+    "recentFiles": [
+        "forestMap.tmx"
+    ]
+}

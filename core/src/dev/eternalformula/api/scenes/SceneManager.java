@@ -1,13 +1,15 @@
 package dev.eternalformula.api.scenes;
 
+import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 
 import dev.eternalformula.api.EFAPI;
 import dev.eternalformula.api.util.EFDebug;
-import dev.eternalformula.api.util.EFGFX;
 import dev.eternalformula.api.viewports.ViewportHandler;
 
 /**
@@ -20,6 +22,8 @@ import dev.eternalformula.api.viewports.ViewportHandler;
 
 public class SceneManager {
 	
+	private PooledEngine ecsEngine;
+	
 	private Scene currentScene;
 	
 	private ViewportHandler viewportHandler;
@@ -30,13 +34,15 @@ public class SceneManager {
 	private SceneManager() {
 		this.currentScene = null;
 		
+		this.ecsEngine = new PooledEngine();
+		
 		// Batch initialization
 		this.gameBatch = new SpriteBatch();
 		this.uiBatch = new SpriteBatch();
 		
 		// viewport
-		this.viewportHandler = new ViewportHandler(EFGFX.DEFAULT_WIDTH,
-				EFGFX.DEFAULT_HEIGHT);
+		this.viewportHandler = new ViewportHandler(Gdx.graphics.getWidth(),
+				Gdx.graphics.getHeight());
 	}
 	
 	/**
@@ -80,16 +86,41 @@ public class SceneManager {
 	 */
 	
 	public void update(float delta) {
+		gameBatch.begin();
 		
 		viewportHandler.update(delta);
+		ecsEngine.update(delta);
 		
 		if (currentScene != null) {
 			handleInput(delta);
 			currentScene.update(delta);
 		}
+		
+		gameBatch.end();
 	}
 	
 	private void handleInput(float delta) {
+		OrthographicCamera camera = getGameCamera();
+		Vector3 pos = camera.position;
+		
+		if (Gdx.input.isKeyJustPressed(Input.Keys.W | Input.Keys.UP)) {
+			pos.y += 1;
+		}
+		
+		if (Gdx.input.isKeyJustPressed(Input.Keys.A | Input.Keys.LEFT)) {
+			pos.x -= 1;
+		}
+		
+		if (Gdx.input.isKeyJustPressed(Input.Keys.S | Input.Keys.DOWN)) {
+			pos.y -= 1;
+		}
+		
+		if (Gdx.input.isKeyJustPressed(Input.Keys.D | Input.Keys.RIGHT)) {
+			pos.x += 1;
+		}
+		
+		camera.position.set(pos);
+		
 		// inputManager.update(delta);
 		// on input, scenemanager gets notified and procked?
 	}
@@ -114,6 +145,14 @@ public class SceneManager {
 	
 	public void setCurrentScene(Scene scene) {
 		this.currentScene = scene;
+	}
+	
+	public PooledEngine getEngine() {
+		return ecsEngine;
+	}
+	
+	public SpriteBatch getGameBatch() {
+		return gameBatch;
 	}
 	
 	public OrthographicCamera getGameCamera() {
@@ -145,6 +184,12 @@ public class SceneManager {
 			EFDebug.info("An instance of the SceneManager already exists, so this call was ignored.");
 		}
 		return null;
+	}
+	
+	public String toString() {
+		// Get name of scene
+		String sceneName = (currentScene != null ? currentScene.getClass().getName() : "N/A");
+		return "[SceneManager: currentScene=" + sceneName + "]";
 	}
 
 }

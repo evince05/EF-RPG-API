@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <tileset firstgid="1" source="../forest-objects.tsx"/>
+ <object gid="1" width="16" height="32">
+  <properties>
+   <property name="light" type="class" propertytype="Light">
+    <properties>
+     <property name="distance" type="float" value="5"/>
+     <property name="height" type="float" value="0.25"/>
+     <property name="lightColor" type="color" value="#f0d343"/>
+     <property name="localPos" type="class" propertytype="Position">
+      <properties>
+       <property name="x" type="float" value="0.5"/>
+       <property name="y" type="float" value="1.5"/>
+      </properties>
+     </property>
+     <property name="maxFlickerDistance" type="float" value="0.3"/>
+     <property name="width" type="float" value="0.25"/>
+    </properties>
+   </property>
+  </properties>
+ </object>
+</template>

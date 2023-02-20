@@ -1,39 +1,45 @@
 package dev.eternalformula.examples.scenes;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 
+import dev.eternalformula.api.maps.CustomTiledProperty;
 import dev.eternalformula.api.scenes.Scene;
-import dev.eternalformula.api.util.EFDebug;
+import dev.eternalformula.api.scenes.SceneManager;
+import dev.eternalformula.api.world.GameWorld;
 
 /**
  * GameScene demo class
  * 
+ * @author EternalFormula
  * @since Alpha 0.0.1
  * @lastEdit Alpha 0.0.1 (02/09/23)
- * @author EternalFormula
  *
  */
 public class GameScene extends Scene {
 	
-	private TextureRegion badlogicReg;
+	private GameWorld world;
 	
 	public GameScene() {
-		badlogicReg = new TextureRegion(new Texture
-				(Gdx.files.internal("badlogic.jpg")));
+		this.world = GameWorld.createNewWorld();
+		CustomTiledProperty.CUSTOM_TYPES_PATH = "examples/maps/forestMap/EFAPI-customtiledtypes.json";
+		
+		world.loadNewMapArea("examples/maps/forestMap/forestMap.tmx");
+		SceneManager.getInstance().getGameCamera().position.set(new Vector2(10, 8), 0);
+		
+		System.out.println("MapEntity count: " + SceneManager.getInstance().getEngine().getEntities().size());
 	}
 
 	@Override
 	public void update(float delta) {	
+		world.update(delta);
 	}
 
 	@Override
 	public void draw(SpriteBatch batch, float delta) {
 		batch.begin();
-		EFDebug.info("New draw");
-		batch.draw(badlogicReg, -6, -6, 12, 12);
+		
+		world.draw(batch, delta);
 		
 		batch.end();
 	}
@@ -60,7 +66,7 @@ public class GameScene extends Scene {
 	
 	@Override
 	public void dispose() {
-		
+		world.dispose();
 	}
 
 }

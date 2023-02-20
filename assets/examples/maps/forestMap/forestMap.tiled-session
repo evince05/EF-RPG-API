@@ -1,0 +1,60 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "forestMap.tmx",
+    "expandedProjectPaths": [
+        "templates",
+        ".",
+        "textures"
+    ],
+    "fileStates": {
+        "forest-objects.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "forest.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "forestMap.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 61,
+                "y": 218
+            }
+        },
+        "forestObjects.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        }
+    },
+    "last.imagePath": "C:/Users/ellio/eclipse-workspace/EF RPG API/assets/examples/maps/forestMap/textures",
+    "last.objectTemplatePath": "C:/Users/ellio/eclipse-workspace/EF RPG API/assets/examples/maps/forestMap/templates",
+    "last.objectTypesPath": "C:/Users/ellio/eclipse-workspace/EF RPG API/assets/examples/maps/forestMap/EFAPI-customtiledtypes.json",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "forest.tsx",
+        "forest-objects.tsx",
+        "forestMap.tmx"
+    ],
+    "project": "forestMap.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "forest.tsx",
+        "forest-objects.tsx",
+        "forestMap.tmx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.type": 1
+}
