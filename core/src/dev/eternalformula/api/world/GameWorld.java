@@ -6,6 +6,7 @@ package dev.eternalformula.api.world;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
@@ -39,6 +40,8 @@ public class GameWorld {
 	private World world;
 	private RayHandler rayHandler;
 	
+	private Box2DDebugRenderer b2dr;
+	
 	private EFMapRenderer mapRenderer;
 	private EFTiledMap levelMap;
 	
@@ -64,6 +67,7 @@ public class GameWorld {
 		this.worldEntitiesToRemove = new Array<Entity>();
 		
 		this.mapRenderer = new EFMapRenderer();
+		this.b2dr = new Box2DDebugRenderer();
 		this.levelMap = null;
 		
 	}
@@ -107,11 +111,20 @@ public class GameWorld {
 		
 		rayHandler.setCombinedMatrix(SceneManager.getInstance().getGameCamera());
 		rayHandler.render();
+		
+		gameBatch.end();
+		
+		b2dr.render(world, SceneManager.getInstance().getGameCamera().combined);
+		
+		gameBatch.begin();
 	}
 	
 	public void dispose() {
 		world.dispose();
 		rayHandler.dispose();
+		b2dr.dispose();
+		mapRenderer.dispose();
+		levelMap.dispose();
 	}
 	
 	public void pause() {

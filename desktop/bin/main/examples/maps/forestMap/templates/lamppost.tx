@@ -7,7 +7,6 @@
     <properties>
      <property name="distance" type="float" value="5"/>
      <property name="height" type="float" value="0.25"/>
-     <property name="lightColor" type="color" value="#f0d343"/>
      <property name="localPos" type="class" propertytype="Position">
       <properties>
        <property name="x" type="float" value="0.5"/>
@@ -16,6 +15,36 @@
      </property>
      <property name="maxFlickerDistance" type="float" value="0.3"/>
      <property name="width" type="float" value="0.25"/>
+    </properties>
+   </property>
+   <property name="physicsBody" type="class" propertytype="PhysicsBody">
+    <properties>
+     <property name="collider" type="class" propertytype="Rectangle">
+      <properties>
+       <property name="centerPos" type="class" propertytype="Position">
+        <properties>
+         <property name="x" type="float" value="0.5"/>
+         <property name="y" type="float" value="0.03125"/>
+        </properties>
+       </property>
+       <property name="height" type="float" value="0.0625"/>
+       <property name="width" type="float" value="1"/>
+      </properties>
+     </property>
+     <property name="colliderType" value="MapEntity"/>
+     <property name="hitbox" type="class" propertytype="Rectangle">
+      <properties>
+       <property name="centerPos" type="class" propertytype="Position">
+        <properties>
+         <property name="x" type="float" value="0.5"/>
+         <property name="y" type="float" value="1"/>
+        </properties>
+       </property>
+       <property name="height" type="float" value="2"/>
+       <property name="width" type="float" value="1"/>
+      </properties>
+     </property>
+     <property name="hitboxType" value="MapEntity"/>
     </properties>
    </property>
   </properties>

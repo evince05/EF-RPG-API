@@ -61,6 +61,48 @@
     },
     {
         "color": "#ffa0a0a4",
+        "id": 6,
+        "members": [
+            {
+                "name": "collider",
+                "propertyType": "Rectangle",
+                "type": "class",
+                "value": {
+                }
+            },
+            {
+                "name": "colliderType",
+                "type": "string",
+                "value": ""
+            },
+            {
+                "name": "hitbox",
+                "propertyType": "Rectangle",
+                "type": "class",
+                "value": {
+                }
+            },
+            {
+                "name": "hitboxType",
+                "type": "string",
+                "value": ""
+            }
+        ],
+        "name": "PhysicsBody",
+        "type": "class",
+        "useAs": [
+            "property",
+            "map",
+            "layer",
+            "object",
+            "tile",
+            "tileset",
+            "wangcolor",
+            "wangset"
+        ]
+    },
+    {
+        "color": "#ffa0a0a4",
         "id": 4,
         "members": [
             {
@@ -75,6 +117,44 @@
             }
         ],
         "name": "Position",
+        "type": "class",
+        "useAs": [
+            "property",
+            "map",
+            "layer",
+            "object",
+            "tile",
+            "tileset",
+            "wangcolor",
+            "wangset"
+        ]
+    },
+    {
+        "color": "#ffa0a0a4",
+        "id": 5,
+        "members": [
+            {
+                "name": "height",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "width",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "x",
+                "type": "float",
+                "value": 0
+            },
+            {
+                "name": "y",
+                "type": "float",
+                "value": 0
+            }
+        ],
+        "name": "Rectangle",
         "type": "class",
         "useAs": [
             "property",

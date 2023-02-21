@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import dev.eternalformula.api.maps.CustomTiledProperty;
 import dev.eternalformula.api.scenes.Scene;
 import dev.eternalformula.api.scenes.SceneManager;
+import dev.eternalformula.api.util.EFDebug;
 import dev.eternalformula.api.world.GameWorld;
 
 /**
@@ -27,7 +28,8 @@ public class GameScene extends Scene {
 		world.loadNewMapArea("examples/maps/forestMap/forestMap.tmx");
 		SceneManager.getInstance().getGameCamera().position.set(new Vector2(10, 8), 0);
 		
-		System.out.println("MapEntity count: " + SceneManager.getInstance().getEngine().getEntities().size());
+		EFDebug.info("MapEntity count: " + SceneManager.getInstance().getEngine().getEntities().size());
+		EFDebug.info("Body count: " + world.getWorld().getBodyCount());
 	}
 
 	@Override

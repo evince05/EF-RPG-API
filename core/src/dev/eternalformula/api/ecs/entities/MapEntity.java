@@ -8,14 +8,16 @@ import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapProperties;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
 
 import dev.eternalformula.api.ecs.components.MapEntityComponent;
 import dev.eternalformula.api.ecs.components.PositionComponent;
 import dev.eternalformula.api.ecs.components.TextureComponent;
 import dev.eternalformula.api.ecs.components.physics.LightComponent;
+import dev.eternalformula.api.ecs.components.physics.PhysicsComponent;
 import dev.eternalformula.api.maps.CustomTiledProperty;
+import dev.eternalformula.api.physics.PhysicsUtil;
 import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.util.EFDebug;
 import dev.eternalformula.api.util.Strings;
@@ -54,6 +56,12 @@ public class MapEntity extends Entity {
 	public void loadProperties(GameWorld gameWorld, MapProperties props) {
 		
 		PooledEngine ecsEngine = SceneManager.getInstance().getEngine();
+		
+		// PositionComponent - for position setting
+		PositionComponent posComp = getComponent(PositionComponent.class);
+		float entityX = posComp.getX();
+		float entityY = posComp.getY();
+		
 		if (props.containsKey("light")) {
 			// Light
 			EFDebug.info("Attemtping to create light component!");
@@ -77,12 +85,8 @@ public class MapEntity extends Entity {
 			float width = (float) lightProp.get("width");
 			float height = (float) lightProp.get("height");
 			
-			PositionComponent posComp = getComponent(PositionComponent.class);
-			float pX = posComp.getX();
-			float pY = posComp.getY();
-			
-			localPos.x += pX;
-			localPos.y += pY;
+			localPos.x += entityX;
+			localPos.y += entityY;
 			
 			if (lightProp.containsKey("distance")) {
 				lightComp.lightDistance = (float) lightProp.get("distance");
@@ -106,6 +110,31 @@ public class MapEntity extends Entity {
 			
 			// Adds light component to the entity
 			add(lightComp);
+		}
+		
+		if (props.containsKey("physicsBody")) {
+			EFDebug.info("Found physics body!");
+			
+			CustomTiledProperty physicsBody = (CustomTiledProperty) props.get("physicsBody");
+			PhysicsComponent physicsComp = ecsEngine.createComponent(PhysicsComponent.class);
+			EFDebug.info("Current Prop: " + physicsBody.toString());
+			
+			if (physicsBody.containsKey("hitbox")) {
+				Rectangle hitboxRect = (Rectangle) physicsBody.get("hitbox");
+				
+				// Creates hitbox body
+				physicsComp.hitboxBody = PhysicsUtil.createBodyFromTiledProperty
+						(gameWorld, posComp.position, hitboxRect);
+			}
+			
+			if (physicsBody.containsKey("collider")) {
+				Rectangle colliderRect = (Rectangle) physicsBody.get("collider");
+				
+				// Creates collider body
+				physicsComp.colliderBody = PhysicsUtil.createBodyFromTiledProperty
+						(gameWorld, posComp.position, colliderRect);
+			}
+			
 		}
 	}
 	

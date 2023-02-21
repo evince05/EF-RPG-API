@@ -24,8 +24,8 @@
                 },
                 {
                     "name": "lightColor",
-                    "type": "string",
-                    "value": ""
+                    "type": "color",
+                    "value": "#ffffaa00"
                 },
                 {
                     "name": "localPos",
@@ -70,6 +70,48 @@
         },
         {
             "color": "#ffa0a0a4",
+            "id": 6,
+            "members": [
+                {
+                    "name": "collider",
+                    "propertyType": "Rectangle",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "colliderType",
+                    "type": "string",
+                    "value": "MapEntity"
+                },
+                {
+                    "name": "hitbox",
+                    "propertyType": "Rectangle",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "hitboxType",
+                    "type": "string",
+                    "value": "MapEntity"
+                }
+            ],
+            "name": "PhysicsBody",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
             "id": 4,
             "members": [
                 {
@@ -84,6 +126,41 @@
                 }
             ],
             "name": "Position",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "id": 5,
+            "members": [
+                {
+                    "name": "centerPos",
+                    "propertyType": "Position",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "width",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "Rectangle",
             "type": "class",
             "useAs": [
                 "property",

@@ -128,7 +128,6 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 		
 		if (e != null && e.getChildByName("properties") != null) {
 			MapProperties props = new MapProperties();
-			EFDebug.info("Found properties");
 			
 			for (Element property : e.getChildByName("properties").getChildrenByName("property")) {
 				
@@ -137,6 +136,7 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 				if (property.hasAttribute("propertytype")) {
 					// Custom Property
 					EFDebug.info("CustomTiledProperty detected!");
+					EFDebug.info("Found property name=" + name);
 					props.put(name, CustomTiledProperty.getCustomProperty(property));
 					continue;
 				}

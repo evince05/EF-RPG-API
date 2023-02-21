@@ -6,6 +6,7 @@ package dev.eternalformula.api.maps;
 import java.util.HashMap;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.XmlReader.Element;
@@ -32,8 +33,6 @@ public class CustomTiledProperty {
 		
 		this.attrMembers= new HashMap<String, Object>();
 		loadSubProperties(elementRoot);
-		
-		EFDebug.info(this.toString());
 	}
 	
 	/**
@@ -42,13 +41,17 @@ public class CustomTiledProperty {
 	 */
 	
 	private void loadSubProperties(Element rootProperty) {
-		EFDebug.info(rootProperty.toString());
 		if (rootProperty.hasChild("properties")) {
 			for (Element subProp : rootProperty.getChildByName("properties")
 					.getChildrenByName("property")) {
 				
 				String key = subProp.get("name");
-				String type = subProp.get("type");
+				
+				//EFDebug.info("Key: " + key);
+				String type = null;
+				if (subProp.hasAttribute("type")) {
+					type = subProp.get("type");
+				}
 
 				// Custom types
 				if (isCustomProperty(subProp)) {
@@ -91,6 +94,37 @@ public class CustomTiledProperty {
 			
 			Vector2 pos = new Vector2(posX, posY);
 			return pos;
+		}
+		
+		if (type.equalsIgnoreCase("rectangle")) {
+			Element propertiesElem = property.getChildByName("properties");
+			
+			Vector2 centerPos = Vector2.Zero;
+			float width = 0f;
+			float height = 0f;
+			
+			for (Element prop : propertiesElem.getChildrenByName("property")) {
+				
+				if (prop.hasAttribute("propertytype")) {
+					// This is the "centerPos" attribute
+					centerPos = (Vector2) loadCustomProperty("position", prop);
+				}
+				else if (prop.get("name").equals("width")) {
+					width = prop.getFloat("value");
+				}
+				else if (prop.get("name").equals("height")) {
+					height = prop.getFloat("value");
+				}
+			}
+			
+			/* 
+			 * Creates a new rectangle off of the given information.
+			 * Note that this is not a graphical representation of a square,
+			 * but is is the center point, along with the width and height.
+			 */
+			
+			return new Rectangle(centerPos.x - width / 2f,
+					centerPos.y - height / 2f, width, height);
 		}
 		
 		return null;
