@@ -37,7 +37,7 @@ public class LightSystem extends IteratingSystem {
 				float maxDisplacement = lightComp.maxFlickerDistance;
 				
 				float newDistance = MathUtils.random(dst - maxDisplacement, dst + maxDisplacement);
-				//lightComp.light.se(newDistance);
+				lightComp.light.setDistance(newDistance);
 				
 				// Reset the flicker 
 				lightComp.flickerTimer = 0f;

@@ -60,7 +60,7 @@ public class GameWorld {
 		this.world = new World(Vector2.Zero, false);
 		this.rayHandler = new RayHandler(world);
 		
-		rayHandler.setAmbientLight(1f);
+		rayHandler.setAmbientLight(0.4f);
 		
 		this.worldEntities = new Array<Entity>();
 		this.worldEntitiesToAdd = new Array<Entity>();
@@ -110,11 +110,11 @@ public class GameWorld {
 		mapRenderer.draw(gameBatch, delta);
 		
 		rayHandler.setCombinedMatrix(SceneManager.getInstance().getGameCamera());
-		rayHandler.render();
 		
 		gameBatch.end();
+		rayHandler.render();
 		
-		b2dr.render(world, SceneManager.getInstance().getGameCamera().combined);
+		//b2dr.render(world, SceneManager.getInstance().getGameCamera().combined);
 		
 		gameBatch.begin();
 	}

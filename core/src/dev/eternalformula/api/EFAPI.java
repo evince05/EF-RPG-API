@@ -1,5 +1,8 @@
 package dev.eternalformula.api;
 
+import com.badlogic.gdx.Gdx;
+
+import dev.eternalformula.api.input.InputListener;
 import dev.eternalformula.api.scenes.SceneManager;
 
 /**
@@ -15,15 +18,18 @@ import dev.eternalformula.api.scenes.SceneManager;
 
 public class EFAPI {
 	
-	public static final String API_VERSION = "Alpha 0.0.2";
+	public static final String API_VERSION = "Alpha 0.0.3";
 	
 	private static EFAPI apiInstance = null;
 	
 	private SceneManager sceneManager;
+	private InputListener inputListener;
 	
 	private EFAPI() {
 		apiInstance = this;
 		this.sceneManager = SceneManager.createNewInstance();
+		this.inputListener = InputListener.createNewInstance();
+		Gdx.input.setInputProcessor(inputListener);
 	}
 	
 	/**
@@ -60,6 +66,10 @@ public class EFAPI {
 	
 	public SceneManager getSceneManager() {
 		return sceneManager;
+	}
+	
+	public InputListener getInputListener() {
+		return inputListener;
 	}
 
 }

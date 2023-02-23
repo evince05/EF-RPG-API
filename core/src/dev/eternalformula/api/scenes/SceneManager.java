@@ -2,13 +2,12 @@ package dev.eternalformula.api.scenes;
 
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector3;
 
 import dev.eternalformula.api.EFAPI;
+import dev.eternalformula.api.ecs.systems.LightSystem;
 import dev.eternalformula.api.util.EFDebug;
 import dev.eternalformula.api.viewports.ViewportHandler;
 
@@ -35,6 +34,7 @@ public class SceneManager {
 		this.currentScene = null;
 		
 		this.ecsEngine = new PooledEngine();
+		ecsEngine.addSystem(new LightSystem());
 		
 		// Batch initialization
 		this.gameBatch = new SpriteBatch();
@@ -92,37 +92,10 @@ public class SceneManager {
 		ecsEngine.update(delta);
 		
 		if (currentScene != null) {
-			handleInput(delta);
 			currentScene.update(delta);
 		}
 		
 		gameBatch.end();
-	}
-	
-	private void handleInput(float delta) {
-		OrthographicCamera camera = getGameCamera();
-		Vector3 pos = camera.position;
-		
-		if (Gdx.input.isKeyJustPressed(Input.Keys.W | Input.Keys.UP)) {
-			pos.y += 1;
-		}
-		
-		if (Gdx.input.isKeyJustPressed(Input.Keys.A | Input.Keys.LEFT)) {
-			pos.x -= 1;
-		}
-		
-		if (Gdx.input.isKeyJustPressed(Input.Keys.S | Input.Keys.DOWN)) {
-			pos.y -= 1;
-		}
-		
-		if (Gdx.input.isKeyJustPressed(Input.Keys.D | Input.Keys.RIGHT)) {
-			pos.x += 1;
-		}
-		
-		camera.position.set(pos);
-		
-		// inputManager.update(delta);
-		// on input, scenemanager gets notified and procked?
 	}
 	
 	public void resize(int width, int height) {
@@ -155,6 +128,10 @@ public class SceneManager {
 		return gameBatch;
 	}
 	
+	public ViewportHandler getViewportHandler() {
+		return viewportHandler;
+	}
+	
 	public OrthographicCamera getGameCamera() {
 		return (OrthographicCamera) viewportHandler.getGameViewport().getCamera();
 	}
@@ -164,8 +141,8 @@ public class SceneManager {
 	}
 	
 	/**
-	 * Returns the singleton instance for the SceneManager. Note that in order to use this,<br>
-	 * {@link EFAPI#handleInit()} must first be executed, otherwise this will return null.
+	 * Returns the singleton instance of the SceneManager. Note that in order to use this,<br>
+	 * {@link EFAPI#handleInit()} must first be called, otherwise this will return null.
 	 */
 	
 	public static SceneManager getInstance() {
@@ -181,7 +158,7 @@ public class SceneManager {
 			return new SceneManager();
 		}
 		else {
-			EFDebug.info("An instance of the SceneManager already exists, so this call was ignored.");
+			EFDebug.warn("An instance of the SceneManager already exists, so this call was ignored.");
 		}
 		return null;
 	}

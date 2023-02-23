@@ -1,0 +1,48 @@
+
+textures/forest-objects.png
+size: 128, 64
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+forest_lamppost
+  rotate: false
+  xy: 0, 0
+  size: 16, 32
+  orig: 16, 32
+  offset: 0, 0
+  index: -1
+forest_rock_large
+  rotate: false
+  xy: 16, 14
+  size: 26, 18
+  orig: 26, 18
+  offset: 0, 0
+  index: -1
+forest_rock_small
+  rotate: false
+  xy: 16, 2
+  size: 15, 12
+  orig: 15, 12
+  offset: 0, 0
+  index: -1
+forest_torch
+  rotate: false
+  xy: 0, 32
+  size: 64, 32
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+forest_tree_dark
+  rotate: false
+  xy: 91, 28
+  size: 27, 36
+  orig: 27, 36
+  offset: 0, 0
+  index: -1
+forest_tree_light
+  rotate: false
+  xy: 64, 28
+  size: 27, 36
+  orig: 27, 36
+  offset: 0, 0
+  index: -1

@@ -11,8 +11,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.XmlReader.Element;
 
-import dev.eternalformula.api.util.EFDebug;
-
 /**
  * CustomTemplateAttribute
  *
@@ -20,8 +18,6 @@ import dev.eternalformula.api.util.EFDebug;
  * @since Alpha 0.0.2
  */
 public class CustomTiledProperty {
-	
-	public static String CUSTOM_TYPES_PATH = null;
 	
 	private String rootPropName;
 	

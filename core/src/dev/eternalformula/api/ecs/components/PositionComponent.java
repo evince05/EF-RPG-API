@@ -19,6 +19,8 @@ public class PositionComponent implements Component {
 			ComponentMapper.getFor(PositionComponent.class);
 
 	public Vector2 position;
+	public float width;
+	public float height;
 
 	public PositionComponent() {
 		this.position = new Vector2(0f, 0f);
@@ -50,5 +52,21 @@ public class PositionComponent implements Component {
 
 	public void setPosition(float x, float y) {
 		this.position = new Vector2(x, y);
+	}
+	
+	public float getWidth() {
+		return width;
+	}
+	
+	public void setWidth(float width) {
+		this.width = width;
+	}
+	
+	public float getHeight() {
+		return height;
+	}
+	
+	public void setHeight(float height) {
+		this.height = height;
 	}
 }

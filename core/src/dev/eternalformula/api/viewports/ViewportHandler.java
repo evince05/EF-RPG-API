@@ -48,7 +48,9 @@ public class ViewportHandler {
 
 	public void update(float delta) {
 		viewport.update(width, height);
+		viewport.getCamera().update();
 		uiViewport.update(width, height);
+		uiViewport.getCamera().update();
 	}
 
 	public void resize(int width, int height) {

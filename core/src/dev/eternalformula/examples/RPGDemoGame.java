@@ -22,6 +22,7 @@ public class RPGDemoGame extends ApplicationAdapter {
 		
 		// Scene Creation
 		SceneManager.getInstance().setCurrentScene(new GameScene());
+		Gdx.graphics.setWindowedMode(1280, 720);
 	}
 	
 	 @Override
@@ -41,8 +42,6 @@ public class RPGDemoGame extends ApplicationAdapter {
 	 
 	@Override
 	public void resize(int width, int height) {
-		
-		EFDebug.info("Call " + width + ", " + height);
 		SceneManager.getInstance().resize(width, height);
 	}
 	 

@@ -24,7 +24,7 @@ public class LightComponent implements UpdatableComponent {
 	
 	public static final String DEFAULT_LIGHT_COLOR = "#f2d355";
 	
-	private PointLight light;
+	public PointLight light;
 	private Body lightBody;
 	
 	

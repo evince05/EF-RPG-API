@@ -40,6 +40,19 @@ public class Assets {
 	}
 	
 	/**
+	 * Loads an asset (letting the assMan do its thaaaang),
+	 * but forces the asset to be loaded before continuing.
+	 * 
+	 * @param fileName Asset path
+	 * @param type Asset type
+	 */
+	
+	public static <T> void quickLoad(String fileName, Class<T> type) {
+		INSTANCE.assMan.load(fileName, type);
+		INSTANCE.assMan.finishLoadingAsset(fileName);
+	}
+	
+	/**
 	 * Sets a custom loader for a certain class.
 	 * @param <T> The return type of the loaded asset
 	 * @param <P> Loading parameters
@@ -52,8 +65,8 @@ public class Assets {
 		INSTANCE.assMan.setLoader(type, loader);
 	}
 	
-	public static void updateINSTANCE() {
-		INSTANCE.update();
+	public static void updateInstance() {
+		INSTANCE.quietUpdate();
 	}
 	
 	public void update() {
@@ -63,12 +76,20 @@ public class Assets {
 		EFDebug.info("[AssMan] Asset Manager has finished loading!");
 	}
 	
+	public void quietUpdate() {
+		INSTANCE.assMan.update();
+	}
+	
 	public void dispose() {
 		assMan.dispose();
 	}
 	
 	public static <T> T get(String fileName, Class<T> type) {
 		return INSTANCE.assMan.get(fileName, type);
+	}
+	
+	public static boolean isLoaded(String fileName, Class<?> type) {
+		return INSTANCE.assMan.isLoaded(fileName, type);
 	}
 
 }
