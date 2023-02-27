@@ -22,7 +22,6 @@ public class RPGDemoGame extends ApplicationAdapter {
 		
 		// Scene Creation
 		SceneManager.getInstance().setCurrentScene(new GameScene());
-		Gdx.graphics.setWindowedMode(1280, 720);
 	}
 	
 	 @Override

@@ -66,7 +66,5 @@ public class PhysicsUtil {
 		return createBody(world.getWorld(), pos.x + bodyRect.x + bodyRect.width / 2f, 
 				pos.y + bodyRect.y + bodyRect.height / 2f, bodyRect.width, bodyRect.height,
 				BodyType.StaticBody, null);
-		
 	}
-
 }

@@ -3,6 +3,7 @@
  */
 package dev.eternalformula.api.ecs.components.physics;
 
+import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -12,6 +13,9 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 
 import box2dLight.PointLight;
 import dev.eternalformula.api.ecs.components.UpdatableComponent;
+import dev.eternalformula.api.ecs.components.interfaces.EFComponent;
+import dev.eternalformula.api.ecs.components.interfaces.TranslatableComponent;
+import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.world.GameWorld;
 
 /**
@@ -20,13 +24,16 @@ import dev.eternalformula.api.world.GameWorld;
  * @author EternalFormula
  * @since Alpha 0.0.2
  */
-public class LightComponent implements UpdatableComponent {
+public class LightComponent implements EFComponent, UpdatableComponent,
+		TranslatableComponent {
+	
+	public static final ComponentMapper<LightComponent> MAPPER =
+			ComponentMapper.getFor(LightComponent.class);
 	
 	public static final String DEFAULT_LIGHT_COLOR = "#f2d355";
 	
 	public PointLight light;
 	private Body lightBody;
-	
 	
 	public float lightDistance;
 	
@@ -47,6 +54,11 @@ public class LightComponent implements UpdatableComponent {
 	
 	public Color lightColor;
 	
+	// For copying purposes
+	public float lightWidth;
+	public float lightHeight;
+	public Vector2 lightPos;
+	
 	public LightComponent() {
 		super();
 		this.light = null; 
@@ -55,6 +67,7 @@ public class LightComponent implements UpdatableComponent {
 		this.maxFlickerDistance = 0.2f * lightDistance;
 		this.maxTimeBetweenFlicker = 0.6f;
 		this.shouldFlicker = true;
+		this.lightPos = Vector2.Zero;
 	}
 
 	@Override
@@ -69,6 +82,11 @@ public class LightComponent implements UpdatableComponent {
 		bdef.position.set(pos);
 		bdef.type = BodyType.StaticBody;
 		bdef.fixedRotation = true;
+		
+		// Copying purposes
+		this.lightWidth = width;
+		this.lightHeight = height;
+		this.lightPos = pos;
 		
 		body = world.getWorld().createBody(bdef);
 		
@@ -88,4 +106,27 @@ public class LightComponent implements UpdatableComponent {
 		light.attachToBody(lightBody);
 	}
 
+	@Override
+	public LightComponent copy() {
+		LightComponent lightComp = SceneManager.getInstance().getEngine()
+				.createComponent(LightComponent.class);
+		
+		lightComp.lightColor = new Color(lightColor);
+		lightComp.lightDistance = lightDistance;
+		lightComp.maxFlickerDistance = maxFlickerDistance;
+		lightComp.maxTimeBetweenFlicker = maxTimeBetweenFlicker;
+		lightComp.shouldFlicker = shouldFlicker;
+		
+		lightComp.lightWidth = lightWidth;
+		lightComp.lightHeight = lightHeight;
+		lightComp.lightPos = new Vector2(lightPos);
+		
+		return lightComp;
+	}
+
+	@Override
+	public void translate(Vector2 deltaPos) {
+		lightPos.x += deltaPos.x;
+		lightPos.y += deltaPos.y;
+	}
 }

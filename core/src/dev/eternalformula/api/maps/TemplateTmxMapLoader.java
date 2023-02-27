@@ -4,6 +4,8 @@
 package dev.eternalformula.api.maps;
 
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.files.FileHandle;
@@ -33,7 +35,6 @@ import dev.eternalformula.api.world.GameWorld;
  * An extension of the TmxMapLoader that allows Tiled's Template Objects to be loaded.
  * @author EternalFormula
  * @since Alpha 0.0.2
- * @lastEdit Alpha 0.0.2 (02/13/2023)
  */
 
 public class TemplateTmxMapLoader extends TmxMapLoader {
@@ -41,6 +42,7 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 	FileHandle tmxFile;
 
 	private int nonTemplateEntityCount;
+	private Map<String, MapEntity> templateEntities;
 
 	private Array<MapEntity> mapEntities;
 	private GameWorld gameWorld;
@@ -49,6 +51,7 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 		super();
 
 		this.gameWorld = gameWorld;
+		this.templateEntities = new HashMap<String, MapEntity>();
 		this.mapEntities = new Array<MapEntity>();
 	}
 
@@ -72,30 +75,44 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 			float y = map.getProperties().get("height", int.class) - element.getFloat("y") /EFGFX.PPM;
 			
 			FileHandle template = getRelativeFileHandle(tmxFile,element.getAttribute("template"));
+			String templateName = template.nameWithoutExtension();
+			
+			if (templateEntities.containsKey(templateName)) {
+				MapEntity templateEntity = templateEntities.get(templateName);
+				
+				// Attempts to copy the mapentity
+				MapEntity copiedEntity = templateEntity.copy(gameWorld, new Vector2(x, y));
+				
+				// Creates specific properties for the mapentity
+				MapProperties elementProps = getMapProperties(element);
+				if (elementProps != null) {
+					// Template entity with specific properties
+					
+					// Load custom properties
+					copiedEntity.loadProperties(gameWorld, elementProps);
+				}
+				
+				mapEntities.add(copiedEntity);
+				return;
+			}
+			
+			// Must create new entity (first instance)
 			Element el = xml.parse(template);
+
 			Element templateObject = el.getChildByName("object");
 
 			float width = templateObject.getFloat("width") / EFGFX.PPM;
 			float height = templateObject.getFloat("height") / EFGFX.PPM;
 
-			// Used for atlas region lookup
-			String templateName = templateObject.get("name");
-
 			FileHandle tilesetFile = getRelativeFileHandle(template, el.getChildByName("tileset").get("source"));
 			String atlasName = tilesetFile.nameWithoutExtension() + ".atlas";
 
 			FileHandle atlasFile = getRelativeFileHandle(tmxFile, atlasName);
-
-			//EFDebug.info("Found atlas file? " + (atlasFile != null));
 			String atlasPath = atlasFile.path();
 
 			if (!Assets.isLoaded(atlasPath, TextureAtlas.class)) {
 				// Must load asset
-				//EFDebug.info("Loading atlas");
-				
 				Assets.quickLoad(atlasPath, TextureAtlas.class);
-
-				//EFDebug.info("Load time: " + (end - start) / 1000D);
 			}
 
 			TextureAtlas atlas = Assets.get(atlasPath, TextureAtlas.class);
@@ -110,7 +127,7 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 				// Entity has more than one frame in its animation.
 				isAnimated = true;
 			}
-
+			
 			MapEntity mapEntity = (MapEntity) EntityBuilder.createMapEntity(isAnimated);
 			PositionComponent posComp = mapEntity.getComponent(PositionComponent.class);
 			posComp.width = width;
@@ -130,6 +147,11 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 			
 			mapEntity.setupTextures(region, isAnimated, frameDuration);
 			mapEntities.add(mapEntity);
+			
+			// Adds the mapEntity to the template map for cloning purposes.
+			if (!templateEntities.containsKey(templateName)) {
+				templateEntities.put(templateName, mapEntity);
+			}
 		}
 	}
 
@@ -180,6 +202,7 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 	public EFTiledMap generateEFTiledMap(String fileName) {
 
 		TiledMap map = load(fileName);
+		
 		Array<MapEntity> mapEntities = getMapEntities();
 		zSortMapEntities(mapEntities);
 
@@ -203,6 +226,7 @@ public class TemplateTmxMapLoader extends TmxMapLoader {
 
 		@Override
 		public int compare(MapEntity obj1, MapEntity obj2) {
+			
 			float y1 = obj1.getComponent(PositionComponent.class).getY();
 			float y2 = obj2.getComponent(PositionComponent.class).getY();
 

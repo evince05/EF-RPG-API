@@ -9,15 +9,13 @@ buildscript {
         google()
     }
     dependencies {
-        
-
     }
 }
 
 allprojects {
     apply plugin: "eclipse"
-
-    version = '1.0'
+    
+    version = 'alpha_0.0.4'
     ext {
         appName = "EF RPG API"
         gdxVersion = '1.11.0'
@@ -50,6 +48,15 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
         
     }
+    
+    sourceSets {
+    	main {
+    		java {
+    			srcDir 'desktop.src'
+    			exclude 'dev/eternalformula/examples/**'
+    		}
+    	}
+    }
 }
 
 project(":core") {
@@ -64,5 +71,14 @@ project(":core") {
         
         implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
         
+    }
+    
+    sourceSets {
+    	main {
+    		java {
+    			srcDir 'core/src'
+    			exclude 'dev/eternalformula/examples/**'
+    		}
+    	}
     }
 }

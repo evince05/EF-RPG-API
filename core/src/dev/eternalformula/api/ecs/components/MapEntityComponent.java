@@ -15,7 +15,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 
 public class MapEntityComponent implements Component {
 	
-	public static final ComponentMapper<MapEntityComponent> Map =
+	public static final ComponentMapper<MapEntityComponent> MAPPER =
 			ComponentMapper.getFor(MapEntityComponent.class);
 
 }

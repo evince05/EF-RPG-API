@@ -70,6 +70,39 @@
         },
         {
             "color": "#ffa0a0a4",
+            "id": 7,
+            "members": [
+                {
+                    "name": "path",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "name": "x",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "y",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "ParticleEmitter",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
             "id": 6,
             "members": [
                 {

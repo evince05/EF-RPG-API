@@ -18,7 +18,7 @@ import dev.eternalformula.api.scenes.SceneManager;
 
 public class EFAPI {
 	
-	public static final String API_VERSION = "Alpha 0.0.3";
+	public static final String API_VERSION = "Alpha 0.0.4";
 	
 	private static EFAPI apiInstance = null;
 	

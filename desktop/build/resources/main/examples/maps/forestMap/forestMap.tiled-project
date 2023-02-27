@@ -1,0 +1,177 @@
+{
+    "automappingRulesFile": "",
+    "commands": [
+    ],
+    "extensionsPath": "extensions",
+    "folders": [
+        ".",
+        "textures"
+    ],
+    "propertyTypes": [
+        {
+            "color": "#ffa0a0a4",
+            "id": 2,
+            "members": [
+                {
+                    "name": "distance",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "lightColor",
+                    "type": "color",
+                    "value": "#ffffaa00"
+                },
+                {
+                    "name": "localPos",
+                    "propertyType": "Position",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "maxFlickerDistance",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "maxTimeBetweenFlicker",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "shouldFlicker",
+                    "type": "bool",
+                    "value": true
+                },
+                {
+                    "name": "width",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "Light",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "id": 6,
+            "members": [
+                {
+                    "name": "collider",
+                    "propertyType": "Rectangle",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "colliderType",
+                    "type": "string",
+                    "value": "MapEntity"
+                },
+                {
+                    "name": "hitbox",
+                    "propertyType": "Rectangle",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "hitboxType",
+                    "type": "string",
+                    "value": "MapEntity"
+                }
+            ],
+            "name": "PhysicsBody",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "id": 4,
+            "members": [
+                {
+                    "name": "x",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "y",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "Position",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset"
+            ]
+        },
+        {
+            "color": "#ffa0a0a4",
+            "id": 5,
+            "members": [
+                {
+                    "name": "centerPos",
+                    "propertyType": "Position",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "height",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "width",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "Rectangle",
+            "type": "class",
+            "useAs": [
+                "property",
+                "map",
+                "layer",
+                "object",
+                "tile",
+                "tileset",
+                "wangcolor",
+                "wangset"
+            ]
+        }
+    ]
+}

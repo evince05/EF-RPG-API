@@ -3,10 +3,12 @@ package dev.eternalformula.api.ecs.components;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
+import dev.eternalformula.api.ecs.components.interfaces.EFComponent;
+import dev.eternalformula.api.scenes.SceneManager;
 
 /**
  * AnimationComponent
@@ -15,9 +17,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
  * @since Alpha 0.0.3
  */
 
-public class AnimationComponent implements Component {
+public class AnimationComponent implements EFComponent {
 	
-	public static final ComponentMapper<AnimationComponent> Map =
+	public static final ComponentMapper<AnimationComponent> MAPPER =
 			ComponentMapper.getFor(AnimationComponent.class);
 	
 	public Map<String, Animation<TextureRegion>> animations;
@@ -47,5 +49,13 @@ public class AnimationComponent implements Component {
 	
 	public boolean isCurrentAnimFinished() {
 		return currentAnim != null && currentAnim.isAnimationFinished(animElapsedTime);
+	}
+
+	@Override
+	public AnimationComponent copy() {
+		AnimationComponent animComp = SceneManager.getInstance().getEngine()
+				.createComponent(AnimationComponent.class);
+		
+		return animComp;
 	}
 }

@@ -1,0 +1,60 @@
+dev/eternalformula/api/util/EFDebug.java
+ dev.eternalformula.api.util.EFDebug
+dev/eternalformula/api/files/EFFileUtil.java
+ dev.eternalformula.api.files.EFFileUtil
+dev/eternalformula/api/scenes/Scene.java
+ dev.eternalformula.api.scenes.Scene
+dev/eternalformula/api/EFAPI.java
+ dev.eternalformula.api.EFAPI
+dev/eternalformula/api/ecs/components/MapEntityComponent.java
+ dev.eternalformula.api.ecs.components.MapEntityComponent
+dev/eternalformula/api/ecs/systems/LightSystem.java
+ dev.eternalformula.api.ecs.systems.LightSystem
+dev/eternalformula/api/ecs/components/PositionComponent.java
+ dev.eternalformula.api.ecs.components.PositionComponent
+dev/eternalformula/api/input/InputListener.java
+ dev.eternalformula.api.input.InputListener
+dev/eternalformula/api/maps/CustomTiledProperty.java
+ dev.eternalformula.api.maps.CustomTiledProperty
+dev/eternalformula/api/ecs/components/physics/PhysicsComponent.java
+ dev.eternalformula.api.ecs.components.physics.PhysicsComponent
+dev/eternalformula/api/util/Strings.java
+ dev.eternalformula.api.util.Strings
+dev/eternalformula/api/viewports/ViewportHandler.java
+ dev.eternalformula.api.viewports.ViewportHandler
+dev/eternalformula/api/physics/PhysicsUtil.java
+ dev.eternalformula.api.physics.PhysicsUtil
+dev/eternalformula/api/ecs/components/TextureComponent.java
+ dev.eternalformula.api.ecs.components.TextureComponent
+dev/eternalformula/api/GameClass.java
+ dev.eternalformula.api.GameClass
+dev/eternalformula/api/util/Assets.java
+ dev.eternalformula.api.util.Assets
+dev/eternalformula/api/ecs/entities/EntityBuilder.java
+ dev.eternalformula.api.ecs.entities.EntityBuilder
+dev/eternalformula/api/maps/OrthogonalTiledMapRendererBleeding.java
+ dev.eternalformula.api.maps.OrthogonalTiledMapRendererBleeding
+dev/eternalformula/api/input/InputHandler.java
+ dev.eternalformula.api.input.InputHandler
+dev/eternalformula/api/scenes/SceneManager.java
+ dev.eternalformula.api.scenes.SceneManager
+dev/eternalformula/api/maps/EFMapRenderer.java
+ dev.eternalformula.api.maps.EFMapRenderer
+dev/eternalformula/api/ecs/components/physics/LightComponent.java
+ dev.eternalformula.api.ecs.components.physics.LightComponent
+dev/eternalformula/api/ecs/components/UpdatableComponent.java
+ dev.eternalformula.api.ecs.components.UpdatableComponent
+dev/eternalformula/api/ecs/entities/MapEntity.java
+ dev.eternalformula.api.ecs.entities.MapEntity
+dev/eternalformula/api/maps/TemplateTmxMapLoader.java
+ dev.eternalformula.api.maps.TemplateTmxMapLoader
+ dev.eternalformula.api.maps.TemplateTmxMapLoader$1
+ dev.eternalformula.api.maps.TemplateTmxMapLoader$MapEntityComparator
+dev/eternalformula/api/ecs/components/AnimationComponent.java
+ dev.eternalformula.api.ecs.components.AnimationComponent
+dev/eternalformula/api/world/GameWorld.java
+ dev.eternalformula.api.world.GameWorld
+dev/eternalformula/api/util/EFGFX.java
+ dev.eternalformula.api.util.EFGFX
+dev/eternalformula/api/maps/EFTiledMap.java
+ dev.eternalformula.api.maps.EFTiledMap

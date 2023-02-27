@@ -5,6 +5,7 @@ package dev.eternalformula.api.maps;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import dev.eternalformula.api.ecs.systems.ParticleSystem;
 import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.util.EFGFX;
 
@@ -30,6 +31,13 @@ public class EFMapRenderer {
 			
 			// Draw map objs
 			tiledMap.draw(batch, delta);
+			
+			// Draw particles
+			ParticleSystem particleSys = SceneManager.getInstance()
+					.getEngine().getSystem(ParticleSystem.class);
+			
+			particleSys.draw(batch, delta);
+			
 		}
 	}
 	

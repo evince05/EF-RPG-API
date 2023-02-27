@@ -3,10 +3,11 @@
  */
 package dev.eternalformula.api.ecs.components;
 
-import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import dev.eternalformula.api.ecs.components.interfaces.EFComponent;
+import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.util.EFGFX;
 
 /**
@@ -14,9 +15,9 @@ import dev.eternalformula.api.util.EFGFX;
  * @author EternalFormula
  * @since Alpha 0.0.2
  */
-public class TextureComponent implements Component {
+public class TextureComponent implements EFComponent {
 	
-	public static final ComponentMapper<TextureComponent> Map =
+	public static final ComponentMapper<TextureComponent> MAPPER =
 			ComponentMapper.getFor(TextureComponent.class);
 	
 	private TextureRegion region;
@@ -50,6 +51,16 @@ public class TextureComponent implements Component {
 	
 	public float getHeight() {
 		return texHeight;
+	}
+
+	@Override
+	public TextureComponent copy() {
+		TextureComponent comp = SceneManager.getInstance().getEngine()
+				.createComponent(TextureComponent.class);
+		
+		// Should update width and height
+		comp.setTextureRegion(new TextureRegion(getTextureRegion()));
+		return comp;
 	}
 
 }

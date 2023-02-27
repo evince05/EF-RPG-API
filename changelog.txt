@@ -1,41 +1,16 @@
-EF RPG API Changelog (Alpha 0.0.3)
-  Date: 02/22/23
+EF RPG API Changelog (Alpha 0.0.4 - SNAPSHOT 1.0)
+  Date: 02/26/23
 
 New Changes:
-- Completed physics integration (Collider, hitbox for Tiled templates)
+- Created cloning system for MapEntities (faster loading)
+- Created various interfaces (Copyable, TranslatableComponent, etc.) 
+	to assist with the map loading process
+- Added support for templates with custom properties
+- Added support for MapEntities with particle effects
+- Many bug fixes and optimizations
 
-- Fixed a camera positioning bug where going off-map would cause repeated tiles
-	 (using camera.update())
-	 
-- Removed the bitwise logic in the example camera-positioning code so that WASD can properly function.
-
-- Implemented a new MapEntity loading algorithm (results have proven 2x as fast... 
-	not sure how this will scale but it looks promising!)
-	
-- EFTiledMaps now reference a TextureAtlas when loading (much faster than loading individual texture files)
-	This will alter the way maps will be parsed, so check the root/guides folder in the repo for a tutorial.
-	
-- EFTiledMaps now support animated MapEntities
-
-- AssetManager: Added a 'quickLoad()' method, which forces an asset to load before continuing.
-
-- Fixed a bug where moving the camera in fixed increments would cause stuttering on the opposite edge.
-	(eg. moving camera right causes stuttering on left edge of screen, etc.)
-	Fixed by calling camera.update() after moving camera.
-	
-- Created an intuitive input system. The EFAPI passes all input to the InputListener class, where InputHandlers
-	take the input and perform functions. This input system allows for easy separation of game-based and UI-based input.
-	See the 'GameInputHandler' class in the examples package for a possible application of this system.
-	
 Known Bugs:
-
-- Not necessarily a bug, but the lights are a bit bright. Consider toning them down a few notches.
 
 Plans for Alpha 0.0.4:
 - Font Support
 - UI Backend
-- Support for Tiled templates with different properties
-- Particle support (in-game and Tiled properties [ParticleGenerator])
-
-Amazing work! You're doing great! I'm so proud of you :)
-	EternalFormula

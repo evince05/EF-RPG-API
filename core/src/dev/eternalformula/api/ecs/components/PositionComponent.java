@@ -3,19 +3,19 @@
  */
 package dev.eternalformula.api.ecs.components;
 
-import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.gdx.math.Vector2;
 
-/**
- * PositionComponent {@value dev.eternalformula.api.EFAPI#API_VERSION}
- * @author EternalFormula @value dev.eternalformula.api.EFAPI#API_VERSION}
- * @since {@value dev.eternalformula.api.EFAPI#API_VERSION}
- * @lastEdit {@value dev.eternalformula.api.EFAPI#API_VERSION} (02/16/2023)
- */
-public class PositionComponent implements Component {
+import dev.eternalformula.api.ecs.components.interfaces.EFComponent;
+import dev.eternalformula.api.scenes.SceneManager;
 
-	public static final ComponentMapper<PositionComponent> Map =
+/**
+ * PositionComponent
+ * @since Alpha 0.0.2 (02/16/2023)
+ */
+public class PositionComponent implements EFComponent {
+
+	public static final ComponentMapper<PositionComponent> MAPPER =
 			ComponentMapper.getFor(PositionComponent.class);
 
 	public Vector2 position;
@@ -68,5 +68,14 @@ public class PositionComponent implements Component {
 	
 	public void setHeight(float height) {
 		this.height = height;
+	}
+
+	@Override
+	public PositionComponent copy() {
+		PositionComponent comp = SceneManager.getInstance().getEngine()
+				.createComponent(PositionComponent.class);
+		
+		comp.position = new Vector2(position);
+		return comp;
 	}
 }
