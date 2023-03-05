@@ -4,9 +4,9 @@ import com.badlogic.gdx.Gdx;
 
 /**
  * Simple util class for debugging values.
+ * 
  * @author EternalFormula
  * @since Alpha 0.0.1
- * @lastEdit Alpha 0.0.1 (02/08/23)
  */
 
 public class EFDebug {

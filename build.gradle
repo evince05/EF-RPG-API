@@ -14,8 +14,11 @@ buildscript {
 
 allprojects {
     apply plugin: "eclipse"
+    apply plugin: "maven-publish"
+    apply plugin: "java-library"
     
-    version = 'alpha_0.0.4'
+    version = 'alpha-0.0.4'
+     
     ext {
         appName = "EF RPG API"
         gdxVersion = '1.11.0'
@@ -23,7 +26,7 @@ allprojects {
         box2DLightsVersion = '1.5'
         ashleyVersion = '1.7.4'
         aiVersion = '1.8.2'
-        gdxControllersVersion = '2.2.1'
+        gdxControllersVersion = '2.2.1'       
     }
 
     repositories {
@@ -35,11 +38,14 @@ allprojects {
         maven { url "https://oss.sonatype.org/content/repositories/releases/" }
         maven { url "https://jitpack.io" }
     }
+    
+    java {
+    	withSourcesJar()
+    	withJavadocJar()
+    }
 }
 
 project(":desktop") {
-    apply plugin: "java-library"
-
 
     dependencies {
         implementation project(":core")
@@ -49,19 +55,26 @@ project(":desktop") {
         
     }
     
-    sourceSets {
-    	main {
-    		java {
-    			srcDir 'desktop.src'
-    			exclude 'dev/eternalformula/examples/**'
+    jar {
+    	exclude 'dev/eternalformula/examples/**'
+    }
+    
+    project.afterEvaluate {
+    	publishing {
+    		publications {
+        		maven(MavenPublication) {
+            		artifactId 'desktop'
+            		version "$version"
+            		groupId 'ef-rpg-api'
+            		
+            		from components.java
+        		}
     		}
-    	}
+		}
     }
 }
 
 project(":core") {
-    apply plugin: "java-library"
-
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
@@ -73,12 +86,21 @@ project(":core") {
         
     }
     
-    sourceSets {
-    	main {
-    		java {
-    			srcDir 'core/src'
-    			exclude 'dev/eternalformula/examples/**'
+    jar {
+    	exclude 'dev/eternalformula/examples/**'
+    }
+    
+    project.afterEvaluate {
+    	publishing {
+    		publications {
+        		maven(MavenPublication) {
+            		artifactId 'core'
+            		version "$version"
+            		groupId 'ef-rpg-api'
+            		
+            		from components.java
+        		}
     		}
-    	}
+		}
     }
 }

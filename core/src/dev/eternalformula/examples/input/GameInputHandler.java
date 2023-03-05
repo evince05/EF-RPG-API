@@ -18,6 +18,7 @@ import dev.eternalformula.examples.scenes.GameScene;
 public class GameInputHandler implements InputHandler {
 
 	private GameScene scene;
+	private boolean blocked;
 	
 	private int handlerType;
 	
@@ -67,6 +68,16 @@ public class GameInputHandler implements InputHandler {
 
 	@Override
 	public void onMouseDrag(int x, int y) {
+	}
+	
+	@Override
+	public boolean isBlocked() {
+		return blocked;
+	}
+	
+	@Override
+	public void setBlocked(boolean isBlocked) {
+		this.blocked = isBlocked;
 	}
 
 	@Override

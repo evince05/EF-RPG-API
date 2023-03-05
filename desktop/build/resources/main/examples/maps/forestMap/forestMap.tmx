@@ -115,7 +115,7 @@
      <properties>
       <property name="distance" type="float" value="5"/>
       <property name="height" type="float" value="0.25"/>
-      <property name="lightColor" type="color" value="#ffffaaff"/>
+      <property name="lightColor" type="color" value="#ff5555ff"/>
       <property name="localPos" type="class" propertytype="Position">
        <properties>
         <property name="x" type="float" value="0.5"/>

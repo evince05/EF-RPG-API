@@ -51,5 +51,17 @@ public interface InputHandler {
 	public void onMouseWheelScrolled(int direction);
 	
 	public int getHandlerType();
-
+	
+	/**
+	 * Returns whether the input handler is blocked.
+	 */
+	
+	public boolean isBlocked();
+	
+	/**
+	 * Dictates whether the input handler should ignore the
+	 * inputs received from the InputListener.
+	 */
+	
+	public void setBlocked(boolean isBlocked);
 }

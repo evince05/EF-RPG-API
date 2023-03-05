@@ -24,15 +24,14 @@ import dev.eternalformula.api.util.EFDebug;
  * maps, and all that fun stuff.<br><br>
  * 
  * Note that the GameWorld and EFTiledMap both frequently refer to 'entities'.
- * <t>In the GameWorld context, a worldEntity is an entity that interacts<br>
+ * In the GameWorld context, a worldEntity is an entity that interacts<br>
  * with the environment, such as a player, a mob, or a projectile.<br>
  * 
- * <t>In the EFTiledMap context, a mapEntity is an entity that belongs to the<br>
+ * In the EFTiledMap context, a mapEntity is an entity that belongs to the<br>
  * environment, such as a tree, a lamppost, or a trigger.
  * 
  * @author EternalFormula
  * @since Alpha 0.0.2
- * @lastEdit Alpha 0.0.2 (02/14/2023)
  */
 
 public class GameWorld {
@@ -83,6 +82,7 @@ public class GameWorld {
 	
 	public void loadNewMapArea(String fileName) {
 		EFDebug.debug("Attempting to load map \"" + fileName + "\"!");
+		EFDebug.debug("Is load performance dependent on battery being plugged in?");
 		
 		TemplateTmxMapLoader loader = new TemplateTmxMapLoader(this);
 		this.levelMap = loader.generateEFTiledMap(fileName);

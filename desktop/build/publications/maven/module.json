@@ -1,0 +1,185 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ef-rpg-api",
+    "module": "desktop",
+    "version": "alpha-0.0.4",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx-backend-lwjgl3",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx-platform",
+          "version": {
+            "requires": "1.11.0"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "gdx-platform",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "natives-desktop"
+            }
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx-box2d-platform",
+          "version": {
+            "requires": "1.11.0"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "gdx-box2d-platform",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "natives-desktop"
+            }
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "desktop-alpha-0.0.4.jar",
+          "url": "desktop-alpha-0.0.4.jar",
+          "size": 105876,
+          "sha512": "af294afa869e099f2059ef5e9333321af673ecb0286d5e48fe45dda7090e97a66d1d4c1b31747fc8277b6fd4f06dd587ce95c1177a15be3cb6a4fde02ac17416",
+          "sha256": "283606d2b0fb1de431e976802039baa7da2648675c99d64f86dba4ce51aaa896",
+          "sha1": "8c76d440421fe049c118e606f4affb1a761874e1",
+          "md5": "79127ec825c24a5c7e7397d0d6c26df7"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "ef-rpg-api",
+          "module": "core",
+          "version": {
+            "requires": "alpha-0.0.4"
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx-backend-lwjgl3",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx-platform",
+          "version": {
+            "requires": "1.11.0"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "gdx-platform",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "natives-desktop"
+            }
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx-box2d-platform",
+          "version": {
+            "requires": "1.11.0"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "gdx-box2d-platform",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "natives-desktop"
+            }
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "desktop-alpha-0.0.4.jar",
+          "url": "desktop-alpha-0.0.4.jar",
+          "size": 105876,
+          "sha512": "af294afa869e099f2059ef5e9333321af673ecb0286d5e48fe45dda7090e97a66d1d4c1b31747fc8277b6fd4f06dd587ce95c1177a15be3cb6a4fde02ac17416",
+          "sha256": "283606d2b0fb1de431e976802039baa7da2648675c99d64f86dba4ce51aaa896",
+          "sha1": "8c76d440421fe049c118e606f4affb1a761874e1",
+          "md5": "79127ec825c24a5c7e7397d0d6c26df7"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "desktop-alpha-0.0.4-sources.jar",
+          "url": "desktop-alpha-0.0.4-sources.jar",
+          "size": 106605,
+          "sha512": "042bde0d02d5d776b981c1a6c02559095cb5c7eb8bec936db4ce714bbd395e4b9a4a61f4b1b911a6c1eaea99809f48de1115ef9e359e2affffe6e68a1e991044",
+          "sha256": "69dc71dfae0eb2fe3775d475cd60d58340f223710a4408267ca5b3799553ea99",
+          "sha1": "04c552ae47ea476a0f66da699df59e274d9efee2",
+          "md5": "32ad444d0f032777dcf30fc56fb322f5"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "desktop-alpha-0.0.4-javadoc.jar",
+          "url": "desktop-alpha-0.0.4-javadoc.jar",
+          "size": 18692,
+          "sha512": "e75253ad987017d1297e2e52e8f2cfbdd69f1340b320e89df4f5c9587caef4038f708e4f6c9c96409a15213fe5d608bbb2af158f273e8867e9c71a02acc04964",
+          "sha256": "e9994cee0f4f83ebbaf99832b163afe1ed3df79c6c2915de7255699e238666d2",
+          "sha1": "2c9b4020ceb8ecb25bd09971804b9de5d7d46b8c",
+          "md5": "03654d99ca76270b9ceefcc613167a97"
+        }
+      ]
+    }
+  ]
+}

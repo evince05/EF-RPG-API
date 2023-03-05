@@ -6,14 +6,13 @@ import dev.eternalformula.api.input.InputListener;
 import dev.eternalformula.api.scenes.SceneManager;
 
 /**
- * The EFAPI class can be considered as the main class of the EF RPG API.<br>
+ * The EFAPI class can be considered the main class of the EF RPG API.<br>
  * It has a wide variety of functionalities and uses that act as the backbone<br>
  * of the API. Note that {@link EFAPI#handleInit()} must always be called<br>
  * on project launch so the API can properly load.
  * 
  * @author EternalFormula
  * @since Alpha 0.0.1
- * @lastEdit
  */
 
 public class EFAPI {

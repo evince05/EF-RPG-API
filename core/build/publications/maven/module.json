@@ -1,0 +1,167 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "ef-rpg-api",
+    "module": "core",
+    "version": "alpha-0.0.4",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 7,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "com.badlogicgames.box2dlights",
+          "module": "box2dlights",
+          "version": {
+            "requires": "1.5"
+          }
+        },
+        {
+          "group": "com.badlogicgames.ashley",
+          "module": "ashley",
+          "version": {
+            "requires": "1.7.4"
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx-box2d",
+          "version": {
+            "requires": "1.11.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "core-alpha-0.0.4.jar",
+          "url": "core-alpha-0.0.4.jar",
+          "size": 57484,
+          "sha512": "b4e0265ad30de1a0f18b8d24b09173083f1a8359814697c198846a7f169396db2cebee2ea61209fed8e293431572fca6617025ccd04ca130289d1163d2dedb26",
+          "sha256": "023a44cfc8bf274c85eb8f980402b619420b4e96849620ce409501bdb5f39aa4",
+          "sha1": "11feffe728f5ce015d8c0ca79370f31b123ae7e6",
+          "md5": "14880894bea629bc1674d9a3393fe95c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 7,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.0.1"
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "com.badlogicgames.box2dlights",
+          "module": "box2dlights",
+          "version": {
+            "requires": "1.5"
+          }
+        },
+        {
+          "group": "com.badlogicgames.ashley",
+          "module": "ashley",
+          "version": {
+            "requires": "1.7.4"
+          }
+        },
+        {
+          "group": "com.badlogicgames.gdx",
+          "module": "gdx-box2d",
+          "version": {
+            "requires": "1.11.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "core-alpha-0.0.4.jar",
+          "url": "core-alpha-0.0.4.jar",
+          "size": 57484,
+          "sha512": "b4e0265ad30de1a0f18b8d24b09173083f1a8359814697c198846a7f169396db2cebee2ea61209fed8e293431572fca6617025ccd04ca130289d1163d2dedb26",
+          "sha256": "023a44cfc8bf274c85eb8f980402b619420b4e96849620ce409501bdb5f39aa4",
+          "sha1": "11feffe728f5ce015d8c0ca79370f31b123ae7e6",
+          "md5": "14880894bea629bc1674d9a3393fe95c"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "core-alpha-0.0.4-sources.jar",
+          "url": "core-alpha-0.0.4-sources.jar",
+          "size": 42439,
+          "sha512": "857d6523c2a044690e5679c4d40f011ab1c8945cc62cf22ece10d950fa56de756454acce64392703fdcaffe43da621e111512993a9c0f578e635eedf35e84dfc",
+          "sha256": "e0b96d8c999a8af938068c46068d60d6a312c07c239d4bc663a52843193841e8",
+          "sha1": "f084723694ef0695f14f9ed703712d0cafa143e7",
+          "md5": "f3f7b5a40c43b56f11e47fd06bcc2d6e"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "core-alpha-0.0.4-javadoc.jar",
+          "url": "core-alpha-0.0.4-javadoc.jar",
+          "size": 224062,
+          "sha512": "a986425003a5ac3c290b492fb25dd1a79177f66c65495cdcb3c6e7b14a258728a4880977a28cb2759e9da54d33e03a183ff7d03150a3bcde1b67ec29405aac66",
+          "sha256": "1b6cf37606ed400b12af539fd75eabde1f3bfb5db58f6b30ca196196ef4e8c93",
+          "sha1": "86880348f586cef920fb6b0fdc7856d7dc9ebf82",
+          "md5": "a2e1bff1083889f0655680f563c4a8aa"
+        }
+      ]
+    }
+  ]
+}

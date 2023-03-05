@@ -13,7 +13,6 @@ import dev.eternalformula.api.ecs.entities.MapEntity;
  * EFTiledMap
  * @author EternalFormula
  * @since Alpha 0.0.2
- * @lastEdit Alpha 0.0.2 (02/13/23)
  */
 
 public class EFTiledMap {

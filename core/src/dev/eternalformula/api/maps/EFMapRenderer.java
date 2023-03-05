@@ -10,10 +10,10 @@ import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.util.EFGFX;
 
 /**
- * EFMapRenderer {@value dev.eternalformula.api.EFAPI#API_VERSION}
- * @author EternalFormula @value dev.eternalformula.api.EFAPI#API_VERSION}
- * @since {@value dev.eternalformula.api.EFAPI#API_VERSION}
- * @lastEdit {@value dev.eternalformula.api.EFAPI#API_VERSION} (02/15/2023)
+ * EFMapRenderer
+ * 
+ * @author EternalFormula
+ * @since Alpha 0.0.2
  */
 public class EFMapRenderer {
 	

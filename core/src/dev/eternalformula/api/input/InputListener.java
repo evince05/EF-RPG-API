@@ -24,6 +24,8 @@ public class InputListener implements InputProcessor {
 	
 	private Array<InputHandler> inputHandlers;
 	
+	private boolean freezeInputs;
+	
 	private InputListener() {
 		this.inputHandlers = new Array<InputHandler>();
 	}
@@ -58,24 +60,36 @@ public class InputListener implements InputProcessor {
 
 	@Override
 	public boolean keyDown(int keycode) {
-		for (InputHandler inHandler : inputHandlers) {
-			inHandler.onKeyDown(keycode);
+		if (!freezeInputs) {
+			for (InputHandler inHandler : inputHandlers) {
+				if (!inHandler.isBlocked()) {
+					inHandler.onKeyDown(keycode);
+				}
+			}
 		}
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		for (InputHandler inHandler : inputHandlers) {
-			inHandler.onKeyUp(keycode);
+		if (!freezeInputs) {
+			for (InputHandler inHandler : inputHandlers) {
+				if (!inHandler.isBlocked()) {
+					inHandler.onKeyUp(keycode);
+				}
+			}
 		}
 		return false;
 	}
 
 	@Override
 	public boolean keyTyped(char character) {
-		for (InputHandler inHandler : inputHandlers) {
-			inHandler.onKeyTyped(character);
+		if (!freezeInputs) {
+			for (InputHandler inHandler : inputHandlers) {
+				if (!inHandler.isBlocked()) {
+					inHandler.onKeyTyped(character);
+				}
+			}
 		}
 		return false;
 	}
@@ -83,16 +97,20 @@ public class InputListener implements InputProcessor {
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		
-		Vector2 worldCoords = unprojectCoordsToGame(screenX, screenY);
-		Vector2 uiCoords = unprojectCoordsToUI(screenX, screenY);
-		
-		for (InputHandler inHandler : inputHandlers) {
-			if (inHandler.getHandlerType() == InputHandler.WORLD_HANDLER) {
-				inHandler.onMouseClicked((int) worldCoords.x, (int) worldCoords.y, button);
-			}
-			else {
-				// Must be UI InputHandler
-				inHandler.onMouseClicked((int) uiCoords.x, (int) uiCoords.y, button);
+		if (!freezeInputs) {
+			Vector2 worldCoords = unprojectCoordsToGame(screenX, screenY);
+			Vector2 uiCoords = unprojectCoordsToUI(screenX, screenY);
+			
+			for (InputHandler inHandler : inputHandlers) {
+				if (!inHandler.isBlocked()) {
+					if (inHandler.getHandlerType() == InputHandler.WORLD_HANDLER) {
+						inHandler.onMouseClicked((int) worldCoords.x, (int) worldCoords.y, button);
+					}
+					else {
+						// Must be UI InputHandler
+						inHandler.onMouseClicked((int) uiCoords.x, (int) uiCoords.y, button);
+					}
+				}
 			}
 		}
 		return false;
@@ -101,16 +119,20 @@ public class InputListener implements InputProcessor {
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		
-		Vector2 worldCoords = unprojectCoordsToGame(screenX, screenY);
-		Vector2 uiCoords = unprojectCoordsToUI(screenX, screenY);
-		
-		for (InputHandler inHandler : inputHandlers) {
-			if (inHandler.getHandlerType() == InputHandler.WORLD_HANDLER) {
-				inHandler.onMouseClicked((int) worldCoords.x, (int) worldCoords.y, button);
-			}
-			else {
-				// Must be UI InputHandler
-				inHandler.onMouseReleased((int) uiCoords.x, (int) uiCoords.y, button);
+		if (!freezeInputs) {
+			Vector2 worldCoords = unprojectCoordsToGame(screenX, screenY);
+			Vector2 uiCoords = unprojectCoordsToUI(screenX, screenY);
+			
+			for (InputHandler inHandler : inputHandlers) {
+				if (!inHandler.isBlocked()) {
+					if (inHandler.getHandlerType() == InputHandler.WORLD_HANDLER) {
+						inHandler.onMouseClicked((int) worldCoords.x, (int) worldCoords.y, button);
+					}
+					else {
+						// Must be UI InputHandler
+						inHandler.onMouseReleased((int) uiCoords.x, (int) uiCoords.y, button);
+					}
+				}
 			}
 		}
 		return false;
@@ -119,16 +141,20 @@ public class InputListener implements InputProcessor {
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
 		
-		Vector2 worldCoords = unprojectCoordsToGame(screenX, screenY);
-		Vector2 uiCoords = unprojectCoordsToUI(screenX, screenY);
-		
-		for (InputHandler inHandler : inputHandlers) {
-			if (inHandler.getHandlerType() == InputHandler.WORLD_HANDLER) {
-				inHandler.onMouseDrag((int) worldCoords.x, (int) worldCoords.y);
-			}
-			else {
-				// Must be UI InputHandler
-				inHandler.onMouseDrag((int) uiCoords.x, (int) uiCoords.y);
+		if (!freezeInputs) {
+			Vector2 worldCoords = unprojectCoordsToGame(screenX, screenY);
+			Vector2 uiCoords = unprojectCoordsToUI(screenX, screenY);
+			
+			for (InputHandler inHandler : inputHandlers) {
+				if (!inHandler.isBlocked()) {
+					if (inHandler.getHandlerType() == InputHandler.WORLD_HANDLER) {
+						inHandler.onMouseDrag((int) worldCoords.x, (int) worldCoords.y);
+					}
+					else {
+						// Must be UI InputHandler
+						inHandler.onMouseDrag((int) uiCoords.x, (int) uiCoords.y);
+					}
+				}
 			}
 		}
 		return false;
@@ -136,16 +162,20 @@ public class InputListener implements InputProcessor {
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		Vector2 worldCoords = unprojectCoordsToGame(screenX, screenY);
-		Vector2 uiCoords = unprojectCoordsToUI(screenX, screenY);
-		
-		for (InputHandler inHandler : inputHandlers) {
-			if (inHandler.getHandlerType() == InputHandler.WORLD_HANDLER) {
-				inHandler.onMouseHovered((int) worldCoords.x, (int) worldCoords.y);
-			}
-			else {
-				// Must be UI InputHandler
-				inHandler.onMouseHovered((int) uiCoords.x, (int) uiCoords.y);
+		if (!freezeInputs) {
+			Vector2 worldCoords = unprojectCoordsToGame(screenX, screenY);
+			Vector2 uiCoords = unprojectCoordsToUI(screenX, screenY);
+			
+			for (InputHandler inHandler : inputHandlers) {
+				if (!inHandler.isBlocked()) {
+					if (inHandler.getHandlerType() == InputHandler.WORLD_HANDLER) {
+						inHandler.onMouseHovered((int) worldCoords.x, (int) worldCoords.y);
+					}
+					else {
+						// Must be UI InputHandler
+						inHandler.onMouseHovered((int) uiCoords.x, (int) uiCoords.y);
+					}
+				}
 			}
 		}
 		return false;
@@ -154,8 +184,12 @@ public class InputListener implements InputProcessor {
 	@Override
 	public boolean scrolled(float amountX, float amountY) {
 		
-		for (InputHandler inHandler : inputHandlers) {
-			inHandler.onMouseWheelScrolled((int) amountY);
+		if (!freezeInputs) {
+			for (InputHandler inHandler : inputHandlers) {
+				if (!inHandler.isBlocked()) {
+					inHandler.onMouseWheelScrolled((int) amountY);	
+				}
+			}
 		}
 		return false;
 	}
@@ -182,6 +216,14 @@ public class InputListener implements InputProcessor {
 	private Vector2 unprojectCoordsToUI(int screenX, int screenY) {
 		ViewportHandler vh = SceneManager.getInstance().getViewportHandler();
 		return vh.getUIViewport().unproject(new Vector2(screenX, screenY));
+	}
+	
+	public boolean isFrozen() {
+		return freezeInputs;
+	}
+	
+	public void setFreezeInputs(boolean freezeInputs) {
+		this.freezeInputs = freezeInputs;
 	}
 
 }

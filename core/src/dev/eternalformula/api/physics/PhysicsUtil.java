@@ -30,7 +30,6 @@ public class PhysicsUtil {
 	 * @param width The width of the body (world units)
 	 * @param height The height of the body (world units)
 	 * @param bodyType The bodytype of the body.
-	 * @param category The PhysicsCategory of the body.
 	 * @param userData The user data of the body's fixture.
 	 */
 	

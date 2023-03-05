@@ -1,16 +1,14 @@
-EF RPG API Changelog (Alpha 0.0.4 - SNAPSHOT 1.0)
-  Date: 02/26/23
+EF RPG API Changelog (Alpha 0.0.4 - SNAPSHOT 2.0)
+  Date: 03/05/23
 
 New Changes:
-- Created cloning system for MapEntities (faster loading)
-- Created various interfaces (Copyable, TranslatableComponent, etc.) 
-	to assist with the map loading process
-- Added support for templates with custom properties
-- Added support for MapEntities with particle effects
-- Many bug fixes and optimizations
+- Began work on UI Backend
+- Began work on Pathfinding (barely)
 
 Known Bugs:
 
-Plans for Alpha 0.0.4:
-- Font Support
-- UI Backend
+Plans for Alpha 0.0.5:
+- Finish pathfinding
+
+Great work! Keep up the great effort!
+EternalFormula :)

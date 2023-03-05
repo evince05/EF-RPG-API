@@ -10,7 +10,6 @@ import dev.eternalformula.api.util.EFGFX;
  * 
  * @author EternalFormula
  * @since Alpha 0.0.1
- * @lastEdit Alpha 0.0.1 (02/09/23)
  */
 
 public class ViewportHandler {

@@ -19,6 +19,13 @@
      <property name="width" type="float" value="0.25"/>
     </properties>
    </property>
+   <property name="particleEmitter" type="class" propertytype="ParticleEmitter">
+    <properties>
+     <property name="path" value="examples/particles/smoke/smoke.particle"/>
+     <property name="x" type="float" value="0.5"/>
+     <property name="y" type="float" value="1.625"/>
+    </properties>
+   </property>
   </properties>
  </object>
 </template>

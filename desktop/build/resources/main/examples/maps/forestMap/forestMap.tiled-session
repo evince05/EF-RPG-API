@@ -5,8 +5,8 @@
     },
     "activeFile": "forestMap.tmx",
     "expandedProjectPaths": [
-        "textures",
         ".",
+        "textures",
         "templates"
     ],
     "fileStates": {
@@ -24,7 +24,7 @@
             "scale": 1,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 175,
+                "x": 250,
                 "y": 240
             }
         },
@@ -45,11 +45,11 @@
         "forest-objects.tsx"
     ],
     "project": "forestMap.tiled-project",
-    "property.type": "Light",
+    "property.type": "float",
     "recentFiles": [
-        "forestMap.tmx",
         "forest.tsx",
-        "forest-objects.tsx"
+        "forest-objects.tsx",
+        "forestMap.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
