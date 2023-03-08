@@ -68,8 +68,9 @@ public class PhysicsComponent implements EFComponent, TranslatableComponent {
 
 	@Override
 	public void translate(Vector2 deltaPos) {
+		
+		// use setTransform (i think this is fixed on PC)
 		hitboxBody.getPosition().x += deltaPos.x;
 		colliderBody.getPosition().y += deltaPos.y;
-		
 	}
 }

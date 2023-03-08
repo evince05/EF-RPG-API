@@ -320,6 +320,18 @@ public class MapEntity extends Entity {
 			}
 		}
 
+		// Additional setup for individual components (if necessary)
+
+		// Make sure to refer to `entity`, not `this` (`this` returns the template entity)
+		if (LightComponent.MAPPER.has(entity)) {
+			LightComponent lightComp = LightComponent.MAPPER.get(entity);
+
+			lightComp.createLightBody(world, lightComp.lightPos, 
+					lightComp.lightWidth, lightComp.lightHeight);
+
+			lightComp.createLight(world);
+		}
+		
 		// Translate each entity accordingly
 		// Gets pos of template entity
 		Vector2 oldPos = PositionComponent.MAPPER.get(this).position;
@@ -331,19 +343,6 @@ public class MapEntity extends Entity {
 			if (newComp instanceof TranslatableComponent) {
 				((TranslatableComponent) newComp).translate(deltaPos);
 			}
-		}
-
-
-		// Additional setup for individual components (if necessary)
-
-		// Make sure to refer to `entity`, not `this` (`this` returns the template entity)
-		if (LightComponent.MAPPER.has(entity)) {
-			LightComponent lightComp = LightComponent.MAPPER.get(entity);
-
-			lightComp.createLightBody(world, lightComp.lightPos, 
-					lightComp.lightWidth, lightComp.lightHeight);
-
-			lightComp.createLight(world);
 		}
 
 		return entity;

@@ -23,6 +23,8 @@ public class AnimationComponent implements EFComponent {
 			ComponentMapper.getFor(AnimationComponent.class);
 	
 	public Map<String, Animation<TextureRegion>> animations;
+	
+	public String currentAnimName;
 	public Animation<TextureRegion> currentAnim;
 	
 	public float animElapsedTime;
@@ -43,6 +45,7 @@ public class AnimationComponent implements EFComponent {
 	public void setAnimation(String animName) {
 		if (animations.containsKey(animName)) {
 			this.currentAnim = animations.get(animName);
+			this.currentAnimName = animName;
 			this.animElapsedTime = 0f;
 		}	
 	}
@@ -55,6 +58,28 @@ public class AnimationComponent implements EFComponent {
 	public AnimationComponent copy() {
 		AnimationComponent animComp = SceneManager.getInstance().getEngine()
 				.createComponent(AnimationComponent.class);
+		
+		Map<String, Animation<TextureRegion>> copiedAnims = 
+				new HashMap<String, Animation<TextureRegion>>();
+		
+		for (Map.Entry<String, Animation<TextureRegion>> entry : animations.entrySet()) {
+			Animation<TextureRegion> oldAnim = entry.getValue();
+			
+			/*
+			 * Not sure if this will copy the exact memory address or not.
+			 * It should be fine considering I don't see myself changing the frames
+			 * of specific animations at runtime.
+			 */
+			
+			copiedAnims.put(entry.getKey(), new Animation<TextureRegion>(oldAnim.getFrameDuration(), 
+					oldAnim.getKeyFrames()));
+		}
+		
+		animComp.animations = copiedAnims;
+		
+		// Watch for mem address
+		animComp.currentAnimName = currentAnimName;
+		animComp.currentAnim = copiedAnims.get(currentAnimName);
 		
 		return animComp;
 	}

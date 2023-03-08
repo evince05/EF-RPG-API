@@ -72,8 +72,7 @@ public class LightComponent implements EFComponent, UpdatableComponent,
 
 	@Override
 	public void update(float delta) {
-		// TODO Auto-generated method stub
-		
+		light.update();
 	}
 	
 	public void createLightBody(GameWorld world, Vector2 pos, float width, float height) {
@@ -128,5 +127,7 @@ public class LightComponent implements EFComponent, UpdatableComponent,
 	public void translate(Vector2 deltaPos) {
 		lightPos.x += deltaPos.x;
 		lightPos.y += deltaPos.y;
+		
+		light.getBody().setTransform(lightPos, 0f);
 	}
 }

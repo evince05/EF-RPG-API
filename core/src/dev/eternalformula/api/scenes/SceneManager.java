@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import dev.eternalformula.api.EFAPI;
 import dev.eternalformula.api.ecs.systems.LightSystem;
+import dev.eternalformula.api.ecs.systems.MotionSystem;
 import dev.eternalformula.api.ecs.systems.ParticleSystem;
 import dev.eternalformula.api.util.EFDebug;
 import dev.eternalformula.api.viewports.ViewportHandler;
@@ -36,6 +37,7 @@ public class SceneManager {
 		this.ecsEngine = new PooledEngine();
 		ecsEngine.addSystem(new LightSystem());
 		ecsEngine.addSystem(new ParticleSystem());
+		ecsEngine.addSystem(new MotionSystem());
 		
 		// Batch initialization
 		this.gameBatch = new SpriteBatch();

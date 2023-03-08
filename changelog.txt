@@ -1,14 +1,16 @@
-EF RPG API Changelog (Alpha 0.0.4 - SNAPSHOT 2.0)
-  Date: 03/05/23
+EF RPG API Changelog (Alpha 0.0.4 - SNAPSHOT 3.0)
+  Date: 03/08/23
+
+Note: This was just a small update so I could transfer stuff over to my PC.
 
 New Changes:
-- Began work on UI Backend
-- Began work on Pathfinding (barely)
+- Added MotionComponent, MotionSystem
+- Removed pathfinding (will be added in Alpha 0.0.5)
 
 Known Bugs:
 
 Plans for Alpha 0.0.5:
-- Finish pathfinding
+- Implement pathfinding
 
 Great work! Keep up the great effort!
 EternalFormula :)
