@@ -40,6 +40,7 @@ import dev.eternalformula.api.world.GameWorld;
  * @since Alpha 0.0.2
  */
 
+// TODO: Add functionality for copying animation components
 public class MapEntity extends Entity {
 
 	private boolean isClone;

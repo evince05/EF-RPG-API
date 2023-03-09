@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
  <tileset firstgid="1" source="../forest-objects.tsx"/>
- <object name="forest_tree_light" gid="5" width="27" height="36"/>
+ <object name="forest_tree_light" gid="5" width="27" height="36">
+  <properties>
+   <property name="physicsBody" type="class" propertytype="PhysicsBody">
+    <properties>
+     <property name="collider" type="class" propertytype="Rectangle">
+      <properties>
+       <property name="centerPos" type="class" propertytype="Position">
+        <properties>
+         <property name="x" type="float" value="0.84375"/>
+         <property name="y" type="float" value="0.0625"/>
+        </properties>
+       </property>
+       <property name="height" type="float" value="0.125"/>
+       <property name="width" type="float" value="1.6875"/>
+      </properties>
+     </property>
+     <property name="hitbox" type="class" propertytype="Rectangle">
+      <properties>
+       <property name="centerPos" type="class" propertytype="Position">
+        <properties>
+         <property name="x" type="float" value="0.84375"/>
+         <property name="y" type="float" value="1.125"/>
+        </properties>
+       </property>
+       <property name="height" type="float" value="2.25"/>
+       <property name="width" type="float" value="1.6875"/>
+      </properties>
+     </property>
+    </properties>
+   </property>
+  </properties>
+ </object>
 </template>

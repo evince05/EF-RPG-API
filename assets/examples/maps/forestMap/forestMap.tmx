@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="105">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="192">
  <tileset firstgid="1" source="forest.tsx"/>
  <tileset firstgid="235" source="forest-objects.tsx"/>
  <layer id="1" name="Tiles" width="30" height="20">
   <data encoding="csv">
-58,32,32,6,58,6,32,6,58,32,61,167,36,37,58,58,32,6,58,6,32,32,6,32,58,32,6,58,6,58,
+58,32,32,6,58,6,32,6,58,32,61,95,36,37,58,58,32,6,58,6,32,32,6,32,58,32,6,58,6,58,
 58,58,6,32,58,32,6,32,6,58,32,35,36,37,6,58,58,58,58,58,58,58,32,58,32,32,6,6,32,32,
 32,32,6,32,6,32,6,32,58,58,58,35,36,37,32,59,58,6,58,32,58,6,32,58,58,32,6,8,58,6,
-32,32,58,58,58,58,32,33,59,58,9,219,36,37,6,6,6,32,32,32,32,32,32,58,58,58,32,32,58,6,
-58,58,58,6,32,58,6,32,9,10,219,36,36,37,58,6,6,6,58,58,32,32,32,33,6,58,58,58,32,32,
+32,32,58,58,58,58,32,33,59,58,9,147,36,37,6,6,6,32,32,32,32,32,32,58,58,58,32,32,58,6,
+58,58,58,6,32,58,6,32,9,10,147,36,36,37,58,6,6,6,58,58,32,32,32,33,6,58,58,58,32,32,
 32,58,32,34,32,32,58,6,35,36,36,36,36,37,6,6,58,32,6,58,58,6,58,58,6,6,58,6,32,6,
 32,58,58,32,6,32,32,32,35,36,36,36,36,37,58,6,58,6,32,6,6,32,32,32,34,32,6,32,32,32,
-32,58,6,58,58,58,58,9,219,36,36,36,165,141,6,58,32,6,58,60,58,32,58,32,6,6,32,6,6,58,
-6,58,32,6,58,32,9,219,36,36,36,165,141,33,32,6,32,6,6,6,32,58,32,32,58,32,58,32,32,32,
-32,58,32,58,32,9,219,36,36,36,165,141,6,6,32,6,58,6,58,32,58,58,58,6,58,6,58,6,6,6,
-11,32,6,58,32,35,36,36,36,165,141,6,58,32,58,6,32,60,32,6,32,6,58,58,32,6,32,58,58,58,
-217,10,10,10,10,219,36,36,165,141,58,60,32,32,58,58,32,58,58,32,32,32,6,60,32,32,6,6,6,6,
-36,36,36,36,36,36,36,165,141,58,32,6,58,58,6,58,58,32,6,6,58,32,58,32,32,58,32,6,32,58,
-36,36,36,36,36,36,36,115,6,32,58,32,32,58,32,58,6,58,32,58,58,32,32,58,32,32,32,32,34,6,
-62,62,62,62,62,62,62,141,6,6,6,58,6,32,6,32,58,6,6,6,32,58,58,6,6,32,32,58,58,32,
-6,6,6,32,58,6,6,6,8,58,6,58,32,32,32,7,6,32,58,58,32,6,32,58,32,58,32,58,58,6,
+32,58,6,58,58,58,58,9,147,36,36,36,93,63,6,58,32,6,58,60,58,32,58,32,6,6,32,6,6,58,
+6,58,32,6,58,32,9,147,36,36,36,93,63,33,32,6,32,6,6,6,32,58,32,32,58,32,58,32,32,32,
+32,58,32,58,32,9,147,36,36,36,93,63,6,6,32,6,58,6,58,32,58,58,58,6,58,6,58,6,6,6,
+11,32,136,58,32,35,36,36,36,93,63,6,58,32,58,6,32,60,32,6,32,6,58,58,32,6,32,58,58,58,
+145,10,132,10,10,147,36,36,93,63,58,60,32,32,58,58,32,58,58,32,32,32,6,60,32,32,6,6,6,6,
+36,36,132,36,36,36,36,93,63,58,32,6,58,58,6,58,58,32,6,6,58,32,58,32,32,58,32,6,32,58,
+36,36,132,36,36,36,36,119,6,32,58,32,32,58,32,58,6,58,32,58,58,32,32,58,32,32,32,32,34,6,
+62,62,132,62,62,62,62,63,6,6,6,58,6,32,6,32,58,6,6,6,32,58,58,6,6,32,32,58,58,32,
+6,6,135,32,58,6,6,6,8,58,6,58,32,32,32,7,6,32,58,58,32,6,32,58,32,58,32,58,58,6,
 32,58,6,33,6,58,6,6,32,32,58,6,58,6,6,58,32,6,6,58,32,32,60,32,32,6,32,6,32,32,
 58,6,58,58,32,58,6,58,32,32,58,60,32,58,58,58,58,32,32,32,6,6,58,32,32,32,58,60,32,58,
 58,58,6,32,6,58,58,32,6,32,32,6,32,6,6,32,32,6,32,58,58,6,32,58,58,32,58,32,58,32,
@@ -33,50 +33,17 @@
   <object id="14" template="templates/forest_rock_large.tx" x="185.5" y="166"/>
   <object id="15" template="templates/forest_rock_small.tx" x="204.5" y="161.5"/>
   <object id="16" template="templates/forest_rock_small.tx" x="206" y="165"/>
-  <object id="17" template="templates/forest_tree_light.tx" x="32" y="96"/>
-  <object id="18" template="templates/forest_tree_light.tx" x="48" y="80"/>
-  <object id="19" template="templates/forest_tree_light.tx" x="64" y="96"/>
-  <object id="20" template="templates/forest_tree_light.tx" x="48" y="112"/>
-  <object id="21" template="templates/forest_tree_light.tx" x="32" y="128"/>
-  <object id="22" template="templates/forest_tree_light.tx" x="64" y="128"/>
-  <object id="23" template="templates/forest_tree_light.tx" x="48" y="144"/>
-  <object id="24" template="templates/forest_tree_light.tx" x="64" y="160"/>
-  <object id="25" template="templates/forest_tree_light.tx" x="48" y="176"/>
-  <object id="26" template="templates/forest_tree_light.tx" x="32" y="160"/>
-  <object id="27" template="templates/forest_tree_light.tx" x="16" y="176"/>
-  <object id="28" template="templates/forest_tree_light.tx" x="16" y="144"/>
-  <object id="29" template="templates/forest_tree_light.tx" x="16" y="112"/>
-  <object id="30" template="templates/forest_tree_light.tx" x="16" y="80"/>
-  <object id="31" template="templates/forest_tree_light.tx" x="32" y="64"/>
-  <object id="32" template="templates/forest_tree_light.tx" x="80" y="80"/>
-  <object id="33" template="templates/forest_tree_light.tx" x="96" y="96"/>
   <object id="34" template="templates/forest_tree_light.tx" x="112" y="80"/>
   <object id="35" template="templates/forest_tree_light.tx" x="128" y="64"/>
   <object id="36" template="templates/forest_tree_light.tx" x="144" y="48"/>
   <object id="37" template="templates/forest_tree_light.tx" x="144" y="32"/>
   <object id="38" template="templates/forest_tree_light.tx" x="144" y="16"/>
-  <object id="39" template="templates/forest_tree_light.tx" x="48" y="48"/>
   <object id="40" template="templates/forest_tree_light.tx" x="96" y="32"/>
   <object id="42" template="templates/forest_tree_light.tx" x="0" y="48"/>
-  <object id="43" template="templates/forest_tree_light.tx" x="0" y="96"/>
-  <object id="44" template="templates/forest_tree_light.tx" x="0" y="128"/>
-  <object id="45" template="templates/forest_tree_light.tx" x="0" y="160"/>
-  <object id="46" template="templates/forest_tree_light.tx" x="64" y="48"/>
-  <object id="47" template="templates/forest_tree_light.tx" x="96" y="48"/>
   <object id="48" template="templates/forest_tree_light.tx" x="112" y="32"/>
   <object id="49" template="templates/forest_tree_light.tx" x="64" y="16"/>
   <object id="50" template="templates/forest_tree_light.tx" x="16" y="32"/>
-  <object id="51" template="templates/forest_tree_dark.tx" x="0" y="64"/>
-  <object id="52" template="templates/forest_tree_dark.tx" x="32" y="80"/>
-  <object id="53" template="templates/forest_tree_dark.tx" x="48" y="64"/>
-  <object id="54" template="templates/forest_tree_dark.tx" x="80" y="48"/>
-  <object id="55" template="templates/forest_tree_dark.tx" x="96" y="64"/>
-  <object id="56" template="templates/forest_tree_dark.tx" x="64" y="64"/>
-  <object id="57" template="templates/forest_tree_dark.tx" x="80" y="64"/>
-  <object id="58" template="templates/forest_tree_dark.tx" x="64" y="80"/>
   <object id="59" template="templates/forest_tree_dark.tx" x="80" y="112"/>
-  <object id="60" template="templates/forest_tree_dark.tx" x="48" y="96"/>
-  <object id="61" template="templates/forest_tree_dark.tx" x="96" y="80"/>
   <object id="62" template="templates/forest_tree_dark.tx" x="112" y="48"/>
   <object id="63" template="templates/forest_tree_dark.tx" x="128" y="32"/>
   <object id="64" template="templates/forest_tree_dark.tx" x="80" y="16"/>
@@ -104,8 +71,6 @@
   <object id="93" template="templates/forest_rock_small.tx" x="352" y="304"/>
   <object id="94" template="templates/forest_rock_small.tx" x="32" y="288"/>
   <object id="95" template="templates/forest_rock_small.tx" x="80" y="304"/>
-  <object id="96" template="templates/forest_rock_small.tx" x="64" y="256"/>
-  <object id="97" template="templates/forest_rock_small.tx" x="16" y="256"/>
   <object id="98" template="templates/forest_lamppost.tx" x="144" y="208"/>
   <object id="99" template="templates/forest_lamppost.tx" x="208" y="144"/>
   <object id="100" template="templates/forest_lamppost.tx" x="224" y="80"/>
@@ -129,7 +94,42 @@
     </property>
    </properties>
   </object>
-  <object id="102" template="templates/forest_lamppost.tx" x="96" y="128"/>
+  <object id="102" template="templates/forest_lamppost.tx" x="80" y="144"/>
   <object id="104" template="templates/forest_torch.tx" x="400" y="112"/>
+  <object id="136" template="templates/forest_tree_light.tx" x="64" y="160"/>
+  <object id="137" template="templates/forest_tree_light.tx" x="96" y="128"/>
+  <object id="138" template="templates/forest_tree_light.tx" x="112" y="112"/>
+  <object id="139" template="templates/forest_tree_light.tx" x="96" y="96"/>
+  <object id="140" template="templates/forest_tree_light.tx" x="0" y="80"/>
+  <object id="141" template="templates/forest_tree_dark.tx" x="0" y="16"/>
+  <object id="143" template="templates/forest_tree_dark.tx" x="0" y="32"/>
+  <object id="144" template="templates/forest_tree_dark.tx" x="112" y="16"/>
+  <object id="146" template="templates/forest_tree_dark.tx" x="144" y="64"/>
+  <object id="147" template="templates/forest_tree_dark.tx" x="160" y="48"/>
+  <object id="148" template="templates/forest_tree_dark.tx" x="96" y="112"/>
+  <object id="149" template="templates/forest_tree_dark.tx" x="64" y="128"/>
+  <object id="150" template="templates/forest_tree_dark.tx" x="0" y="160"/>
+  <object id="152" template="templates/forest_tree_dark.tx" x="0" y="128"/>
+  <object id="153" template="templates/forest_tree_dark.tx" x="0" y="96"/>
+  <object id="154" template="templates/forest_tree_light.tx" x="0" y="112"/>
+  <object id="155" template="templates/forest_tree_light.tx" x="0" y="64"/>
+  <object id="156" template="templates/forest_tree_light.tx" x="0" y="144"/>
+  <object id="157" template="templates/forest_tree_light.tx" x="16" y="64"/>
+  <object id="158" template="templates/forest_tree_light.tx" x="32" y="64"/>
+  <object id="159" template="templates/forest_tree_light.tx" x="16" y="96"/>
+  <object id="160" template="templates/forest_tree_dark.tx" x="16" y="80"/>
+  <object id="162" template="templates/forest_tree_dark.tx" x="16" y="112"/>
+  <object id="168" template="templates/forest_tree_dark.tx" x="0" y="288"/>
+  <object id="169" template="templates/forest_tree_dark.tx" x="128" y="288"/>
+  <object id="170" template="templates/forest_tree_dark.tx" x="208" y="304"/>
+  <object id="171" template="templates/forest_tree_light.tx" x="32" y="320"/>
+  <object id="172" template="templates/forest_tree_light.tx" x="96" y="304"/>
+  <object id="173" template="templates/forest_tree_light.tx" x="176" y="320"/>
+  <object id="174" template="templates/forest_tree_light.tx" x="256" y="272"/>
+  <object id="175" template="templates/forest_tree_light.tx" x="288" y="160"/>
+  <object id="178" template="templates/forest_lamppost.tx" x="48" y="48"/>
+  <object id="179" template="templates/forest_tree_dark.tx" x="48" y="176"/>
+  <object id="180" template="templates/forest_tree_dark.tx" x="0" y="176"/>
+  <object id="191" gid="243" x="80" y="48" width="16" height="16"/>
  </objectgroup>
 </map>

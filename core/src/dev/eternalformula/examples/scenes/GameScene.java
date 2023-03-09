@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import dev.eternalformula.api.input.InputListener;
+import dev.eternalformula.api.pathfinding.Path;
 import dev.eternalformula.api.scenes.Scene;
 import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.ui.UIContainer;
@@ -37,6 +38,8 @@ public class GameScene extends Scene {
 	
 	private OrthographicCamera camera;
 	public Vector2 cameraPos;
+	
+	private Path path;
 	
 	public GameScene() {
 		super();
@@ -77,6 +80,8 @@ public class GameScene extends Scene {
 		// UI Input
 		uiInHand.attachTo(uiLayout);
 		InputListener.getInstance().addInputHandler(uiInHand);
+		
+		this.path = Path.findPath(world, new Vector2(20, 4), new Vector2(4, 17));
 	}
 
 	@Override
@@ -94,6 +99,8 @@ public class GameScene extends Scene {
 		world.draw(batch, delta);
 		
 		batch.end();
+		
+		path.draw(batch, delta);
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.9" tiledversion="1.9.2" name="forest-objects" tilewidth="27" tileheight="36" tilecount="6" columns="0">
+<tileset version="1.9" tiledversion="1.9.2" name="forest-objects" tilewidth="27" tileheight="36" tilecount="9" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <properties>
   <property name="atlasName" value="forest-objects.atlas"/>
@@ -21,5 +21,11 @@
  </tile>
  <tile id="5">
   <image width="16" height="32" source="textures/forest_torch_solo.png"/>
+ </tile>
+ <tile id="7">
+  <image width="16" height="16" source="textures/shadow-1-tile.png"/>
+ </tile>
+ <tile id="8">
+  <image width="16" height="16" source="textures/chest.png"/>
  </tile>
 </tileset>

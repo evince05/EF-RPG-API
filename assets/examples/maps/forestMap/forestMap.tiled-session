@@ -5,9 +5,9 @@
     },
     "activeFile": "forestMap.tmx",
     "expandedProjectPaths": [
-        ".",
         "textures",
-        "templates"
+        "templates",
+        "."
     ],
     "fileStates": {
         "forest-objects.tsx": {
@@ -17,15 +17,15 @@
         },
         "forest.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1,
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "forestMap.tmx": {
-            "scale": 1,
+            "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 250,
-                "y": 240
+                "x": 53.75,
+                "y": 75.25
             }
         },
         "forestObjects.tsx": {
@@ -33,22 +33,23 @@
             "scaleInDock": 1
         }
     },
-    "last.imagePath": "C:/Users/ellio/eclipse-workspace/EF RPG API/assets/examples/maps/forestMap/textures",
+    "frame.defaultDuration": 135,
+    "last.imagePath": "C:/Users/ellio/Gamedev Workspace/EF-RPG-API/assets/examples/maps/forestMap/textures",
     "last.objectTemplatePath": "C:/Users/ellio/eclipse-workspace/EF RPG API/assets/examples/maps/forestMap/templates",
     "last.objectTypesPath": "C:/Users/ellio/Gamedev Workspace/EF-RPG-API/assets/examples/maps/forestMap/EFAPI-customtiledtypes.json",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "openFiles": [
-        "forest.tsx",
         "forestMap.tmx",
+        "forest.tsx",
         "forest-objects.tsx"
     ],
     "project": "forestMap.tiled-project",
-    "property.type": "float",
+    "property.type": "PhysicsBody",
     "recentFiles": [
-        "forest.tsx",
         "forest-objects.tsx",
+        "forest.tsx",
         "forestMap.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",

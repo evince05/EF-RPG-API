@@ -1,16 +1,22 @@
-EF RPG API Changelog (Alpha 0.0.4 - SNAPSHOT 3.0)
+EF RPG API Changelog (Alpha 0.0.5 [SNAPSHOT-1.0])
   Date: 03/08/23
 
-Note: This was just a small update so I could transfer stuff over to my PC.
-
 New Changes:
-- Added MotionComponent, MotionSystem
-- Removed pathfinding (will be added in Alpha 0.0.5)
+- Implemented pathfinding algorithm
 
 Known Bugs:
 
-Plans for Alpha 0.0.5:
-- Implement pathfinding
+Plans for Alpha 0.0.6:
 
-Great work! Keep up the great effort!
-EternalFormula :)
+Ideas for Future Releases (Brainstorming)
+
+	InteractableComponent:
+		-> A component that acts on input from the keyboard / mouse.
+			- onKeyType(int key): runs code when certain key is typed (eg. 'E').
+			- onLeftClick(): runs code when LMB clicks on the entity
+			- onRightClick(): same as above, using RMB.
+			- onMiddleClick(): same as above, using MMB.
+			
+Keep on working! It's coming together very nicely!!
+	EternalFormula :)
+

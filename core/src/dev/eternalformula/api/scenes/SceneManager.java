@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import dev.eternalformula.api.EFAPI;
 import dev.eternalformula.api.ecs.systems.LightSystem;
@@ -31,6 +32,8 @@ public class SceneManager {
 	private SpriteBatch gameBatch;
 	private SpriteBatch uiBatch;
 	
+	private ShapeRenderer shapeRend;
+	
 	private SceneManager() {
 		this.currentScene = null;
 		
@@ -42,6 +45,7 @@ public class SceneManager {
 		// Batch initialization
 		this.gameBatch = new SpriteBatch();
 		this.uiBatch = new SpriteBatch();
+		this.shapeRend = new ShapeRenderer();
 		
 		// viewport
 		this.viewportHandler = new ViewportHandler(Gdx.graphics.getWidth(),
@@ -59,8 +63,10 @@ public class SceneManager {
 			
 			// Batch prepping
 			gameBatch.setProjectionMatrix(getGameCamera().combined);
-			//Gdx.gl.glEnable(GL20.GL_BLEND);
 			Gdx.gl.glClear(GL20.GL_BLEND);
+			
+			shapeRend.setProjectionMatrix(getGameCamera().combined);
+			shapeRend.setAutoShapeType(true);
 			
 			currentScene.draw(gameBatch, delta);
 		}
@@ -129,6 +135,14 @@ public class SceneManager {
 	
 	public SpriteBatch getGameBatch() {
 		return gameBatch;
+	}
+	
+	public SpriteBatch getUIBatch() {
+		return uiBatch;
+	}
+	
+	public ShapeRenderer getShapeRenderer() {
+		return shapeRend;
 	}
 	
 	public ViewportHandler getViewportHandler() {

@@ -4,6 +4,8 @@
 package dev.eternalformula.api.world;
 
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -95,6 +97,8 @@ public class GameWorld {
 		world.step(1 / 60f, 6, 2);
 		rayHandler.update();
 		
+		levelMap.update(delta);
+		
 		// Bottom of update method
 		for (Entity e : worldEntitiesToAdd) {
 			worldEntities.add(e);
@@ -112,6 +116,7 @@ public class GameWorld {
 		rayHandler.setCombinedMatrix(SceneManager.getInstance().getGameCamera());
 		
 		gameBatch.end();
+		
 		rayHandler.render();
 		
 		//b2dr.render(world, SceneManager.getInstance().getGameCamera().combined);
@@ -153,5 +158,9 @@ public class GameWorld {
 	
 	public void removeEntity(Entity e) {
 		worldEntitiesToRemove.add(e);
+	}
+	
+	public EFTiledMap getWorldMap() {
+		return levelMap;
 	}
 }

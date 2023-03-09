@@ -1,6 +1,3 @@
-/**
- * 
- */
 package dev.eternalformula.api.ecs.components.physics;
 
 import com.badlogic.ashley.core.ComponentMapper;
@@ -69,8 +66,7 @@ public class PhysicsComponent implements EFComponent, TranslatableComponent {
 	@Override
 	public void translate(Vector2 deltaPos) {
 		
-		// use setTransform (i think this is fixed on PC)
-		hitboxBody.getPosition().x += deltaPos.x;
-		colliderBody.getPosition().y += deltaPos.y;
+		hitboxBody.setTransform(hitboxBody.getPosition().add(deltaPos), 0f);
+		colliderBody.setTransform(colliderBody.getPosition().add(deltaPos), 0f);
 	}
 }
