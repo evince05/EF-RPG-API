@@ -42,6 +42,8 @@ public interface InputHandler {
 	
 	public void onMouseDrag(int x, int y);
 	
+	public void update(float delta);
+	
 	/**
 	 * Handles when the mouse wheel is scrolled.
 	 * @param direction 1 if the mouse wheel is being scrolled down,

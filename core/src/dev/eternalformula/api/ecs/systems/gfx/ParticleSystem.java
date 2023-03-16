@@ -1,7 +1,7 @@
 /**
  * 
  */
-package dev.eternalformula.api.ecs.systems;
+package dev.eternalformula.api.ecs.systems.gfx;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;

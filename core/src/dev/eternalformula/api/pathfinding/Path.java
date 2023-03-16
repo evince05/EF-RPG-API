@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Queue;
 
 import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.util.EFDebug;
@@ -23,6 +24,14 @@ import dev.eternalformula.api.world.GameWorld;
  * 
  * Since maps come in various dimensions, a unique node grid with dimensions
  * matching the size of the map.
+ * 
+ * TODO: Optimize this algo. The calcualtePath method alone takes roughly 13ms (tested on unplugged laptop;
+ * 		note that one update tick is 16ms in a 60FPS loop)
+ * 		
+ * 		Idea: When repeatedly performing pathfinding calculations (eg. HostileEntity chasing player), 
+ * 			instead of doing calcualtePath whenever playerPos != chaserPos, calculate an initial path,
+ * 			follow said path, and only if the target's path changes course (node-based distance >= someValue),
+ * 			reset the path.
  *
  * @author EternalFormula
  * @since Alpha 0.0.4 (SNAPSHOT-2.0)
@@ -45,7 +54,7 @@ public class Path {
 	private Vector2 startPos;
 	private Vector2 endPos;
 	
-	private Array<PathNode> pathPoints;
+	private Queue<PathNode> pathPoints;
 	
 	/**
 	 * Determines a path from points startPos to endPos using the A* pathfinding algorithm. 
@@ -67,16 +76,14 @@ public class Path {
 	
 	private Path(PathfindingGrid pfGrid, Vector2 startPos, Vector2 endPos) {
 		this.pfGrid = pfGrid;
-		this.startPos = startPos;
-		this.endPos = endPos;
-		this.pathPoints = new Array<PathNode>();
+		this.startPos = new Vector2(startPos);
+		this.endPos = new Vector2(endPos);
+		this.pathPoints = new Queue<PathNode>();
 		
 		
 		long start = System.currentTimeMillis();
 		calculatePath();
 		long end = System.currentTimeMillis();
-		
-		EFDebug.info(Strings.vec2(start, end));
 		
 		EFDebug.info("Created path from " + Strings.vec2(startPos) + " to " +
 				Strings.vec2(endPos) + " in " + (end - start) + "ms");
@@ -116,6 +123,7 @@ public class Path {
 			if (currentNode.equals(endNode)) {
 				// Path has been found.
 				retraceAndSetPath(startNode, endNode);
+				EFDebug.info("Returning full path"); 
 				return;
 			}
 			
@@ -128,6 +136,34 @@ public class Path {
 						getDistanceBetweenNodes(currentNode, neighbor);
 				
 				if (movementCostToNeighbor < neighbor.gCost || !openNodes.contains(neighbor, false)) {
+					
+					// Potential next on path.
+					if (getDistanceBetweenNodes(currentNode, neighbor) == 14) {
+						// Diagonal node.
+						
+						int deltaX = (int) (neighbor.worldPos.x - currentNode.worldPos.x);
+						int deltaY = (int) (neighbor.worldPos.y - currentNode.worldPos.y);
+						
+						PathNode deltaXNode = pfGrid.getNodeFromWorldPos((int) currentNode.worldPos.x + deltaX,
+								(int) currentNode.worldPos.y);
+						
+						PathNode deltaYNode = pfGrid.getNodeFromWorldPos((int) currentNode.worldPos.x,
+								(int) currentNode.worldPos.y + deltaY);
+						
+						if (!deltaXNode.walkable && !deltaYNode.walkable) {
+							
+							/*
+							 * Path is blocked. Entities cannot travel through two tiles diagonally.
+							 * O = Open tile, X = closed tile
+							 * 
+							 * Traversable: | Not Traversable:
+							 * X O          | X O
+							 * O O          | O X
+							 */
+							
+							continue;
+						}
+					}
 					neighbor.gCost = movementCostToNeighbor;
 					neighbor.hCost = getDistanceBetweenNodes(neighbor, endNode);
 
@@ -160,14 +196,11 @@ public class Path {
 		PathNode currentNode = endNode;
 		while (!currentNode.equals(startNode)) {
 			
-			pathPoints.add(currentNode);
+			pathPoints.addFirst(currentNode);
 			
 			// Moves back down the path
 			currentNode = currentNode.parent;
 		}
-		
-		// Reverses the path so it goes from start to end.
-		pathPoints.reverse();
 	}
 	
 	public static int getDistanceBetweenNodes(PathNode nodeA, PathNode nodeB) {
@@ -191,6 +224,19 @@ public class Path {
 		else {
 			return 14 * dstX + 10 * (dstY - dstX);
 		}
+	}
+	
+	public boolean areNodesBlockedDiagonal(PathNode nodeA, PathNode nodeB) {
+		int deltaX = (int) (nodeB.worldPos.x - nodeA.worldPos.x);
+		int deltaY = (int) (nodeB.worldPos.y - nodeA.worldPos.y);
+		
+		PathNode nodeDX = pfGrid.getNodeFromWorldPos((int) nodeA.worldPos.x + deltaX,
+				(int) nodeA.worldPos.y);
+		
+		PathNode nodeDY = pfGrid.getNodeFromWorldPos((int) nodeA.worldPos.x,
+				(int) (nodeA.worldPos.y + deltaY));
+		
+		return !nodeDX.walkable && !nodeDY.walkable;
 	}
 	
 	/**
@@ -220,5 +266,25 @@ public class Path {
 		}
 		
 		sr.end();
+	}
+	
+	/**
+	 * Gets (and removes) the next PathNode from the queue.
+	 */
+	
+	public PathNode extractNextNode() {
+		return pathPoints.removeFirst();
+	}
+	
+	/**
+	 * Returns whether the path has another following node.
+	 */
+	
+	public boolean hasNextNode() {
+		return pathPoints.size > 0;
+	}
+	
+	public Vector2 getEndPosition() {
+		return endPos;
 	}
 }

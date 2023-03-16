@@ -23,6 +23,9 @@ public class UIInputHandler implements InputHandler {
 		this.container = container;
 	}
 	
+	public void update(float delta) {
+	}
+	
 	/**
 	 * Sets a UIContainer to receive all input.<br>
 	 * This overwrites any existing UIContainer to which

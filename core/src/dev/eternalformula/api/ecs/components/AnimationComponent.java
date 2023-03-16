@@ -42,6 +42,13 @@ public class AnimationComponent implements EFComponent {
 		return currentAnim;
 	}
 	
+	/**
+	 * Sets the current animation of the AnimationComponent.
+	 * If the given animation name is not found in the animation map,
+	 * 		nothing occurs.
+	 * 
+	 * @param animName The name of the desired animation
+	 */
 	public void setAnimation(String animName) {
 		if (animations.containsKey(animName)) {
 			this.currentAnim = animations.get(animName);

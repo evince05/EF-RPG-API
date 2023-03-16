@@ -54,6 +54,27 @@ public class PositionComponent implements EFComponent {
 		this.position = new Vector2(x, y);
 	}
 	
+	/**
+	 * (TODO: Monitor for performance issues)
+	 * 
+	 * Gets the center position of the entity. While {@link getPosition()}
+	 * gets the position of the bottom left corner of the entity's hitbox,
+	 * this gets the positon [posX + width / 2f, posY + height / 2f].
+	 * 
+	 * This method is very useful for camera focusing.
+	 * @return The position of the entity's centermost point.
+	 */
+	
+	public Vector2 getCenterPosition() {
+		
+		// Hopefully shouldn't happen
+		if (width == 0 || height == 0) {
+			return position;
+		}
+		
+		return new Vector2(position).add(width / 2f, height / 2f);
+	}
+	
 	public float getWidth() {
 		return width;
 	}

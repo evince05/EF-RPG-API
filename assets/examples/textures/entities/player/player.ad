@@ -1,0 +1,41 @@
+{
+	"atlasPath": "player.atlas",
+	"animations": {
+		"up": {
+			"name": "walk-up",
+			"frames": 4,
+			"frameWidth": 16,
+			"frameHeight": 32,
+			"frameTime": 0.125,
+			"loop": true,
+			"hasIdle": true
+		},
+		"left": {
+			"name": "walk-left",
+			"frames": 4,
+			"frameWidth": 16,
+			"frameHeight": 32,
+			"frameTime": 0.125,
+			"loop": true,
+			"hasIdle": true
+		},
+		"right": {
+			"name": "walk-right",
+			"frames": 4,
+			"frameWidth": 16,
+			"frameHeight": 32,
+			"frameTime": 0.125,
+			"loop": true,
+			"hasIdle": true
+		},
+		"down": {
+			"name": "walk-down",
+			"frames": 4,
+			"frameWidth": 16,
+			"frameHeight": 32,
+			"frameTime": 0.125,
+			"loop": true,
+			"hasIdle": true
+		}		
+	}
+}

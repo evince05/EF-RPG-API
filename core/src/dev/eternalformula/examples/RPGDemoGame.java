@@ -5,6 +5,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 
 import dev.eternalformula.api.EFAPI;
+import dev.eternalformula.api.input.InputListener;
 import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.util.EFDebug;
 import dev.eternalformula.examples.scenes.GameScene;
@@ -31,6 +32,8 @@ public class RPGDemoGame extends ApplicationAdapter {
 		float delta = Gdx.graphics.getDeltaTime();
 		
 		SceneManager sm = SceneManager.getInstance();
+		
+		InputListener.getInstance().update(delta);
 		
 		if (sm.getCurrentScene() != null) {
 			sm.update(delta);

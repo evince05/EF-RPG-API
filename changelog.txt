@@ -1,8 +1,12 @@
-EF RPG API Changelog (Alpha 0.0.5 [SNAPSHOT-1.0])
-  Date: 03/08/23
+EF RPG API Changelog (Alpha 0.0.5 [SNAPSHOT-2.0])
+  Date: 03/15/23
 
 New Changes:
-- Implemented pathfinding algorithm
+- Implemented pathfinding algorithm (should work? maybe? xD)
+- Created HostileEntityAI sys and comp.
+- (example) began working on the Glorb, a simple pathfinding application in
+	the form of a player-chasing hostile entity.
+- Changed a bunch of code (animation systems, state systems, etc.)
 
 Known Bugs:
 

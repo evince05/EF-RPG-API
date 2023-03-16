@@ -195,6 +195,16 @@ public class InputListener implements InputProcessor {
 	}
 	
 	/**
+	 * Handles any update-based stuff for attached InputHandler.
+	 */
+	
+	public void update(float delta) {
+		for (InputHandler in : inputHandlers) {
+			in.update(delta);
+		}
+	}
+	
+	/**
 	 * Converts screen coordinates to world coordinates.
 	 * @param screenX The screen X coordinate
 	 * @param screenY The screen Y coordinate

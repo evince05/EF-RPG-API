@@ -4,8 +4,7 @@
 package dev.eternalformula.api.world;
 
 import com.badlogic.ashley.core.Entity;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
+import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -13,11 +12,13 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
 import box2dLight.RayHandler;
+import dev.eternalformula.api.ecs.systems.gfx.RenderingSystem;
 import dev.eternalformula.api.maps.EFMapRenderer;
 import dev.eternalformula.api.maps.EFTiledMap;
 import dev.eternalformula.api.maps.TemplateTmxMapLoader;
 import dev.eternalformula.api.scenes.SceneManager;
 import dev.eternalformula.api.util.EFDebug;
+import dev.eternalformula.examples.ecs.systems.HostileEntityAISystem;
 
 /**
  * The GameWorld is the foundation of the interactable game environment.<br>
@@ -52,6 +53,8 @@ public class GameWorld {
 	private Array<Entity> worldEntitiesToAdd;
 	private Array<Entity> worldEntitiesToRemove;
 	
+	private static GameWorld instance;
+	
 	/**
 	 * Creates a new GameWorld.
 	 */
@@ -71,15 +74,37 @@ public class GameWorld {
 		this.b2dr = new Box2DDebugRenderer();
 		this.levelMap = null;
 		
+		instance = this;
+		
+		// Game-specific ECS system init
+		setupECS();
 	}
 	
 	/**
-	 * Creates an empty game world.
-	 * @return A new GameWorld object
+	 * Creates an empty game world. Note that if a GameWorld instance has already been created,
+	 * that instance will be returned.
+	 * 
+	 * @return A new GameWorld object or the current GameWorld instance if one exists.
 	 */
 	
 	public static GameWorld createNewWorld() {
-		return new GameWorld();
+		if (instance == null) {
+			return new GameWorld();
+		}
+		return instance;
+	}
+	
+	/**
+	 * Easy-access instance of the GameWorld.
+	 * @return
+	 */
+	public static GameWorld getInstance() {
+		return instance;
+	}
+	
+	private void setupECS() {
+		PooledEngine ecsEngine = SceneManager.getInstance().getEngine();
+		ecsEngine.addSystem(new HostileEntityAISystem());
 	}
 	
 	public void loadNewMapArea(String fileName) {
@@ -112,6 +137,8 @@ public class GameWorld {
 	
 	public void draw(SpriteBatch gameBatch, float delta) {
 		mapRenderer.draw(gameBatch, delta);
+		
+		SceneManager.getInstance().getEngine().getSystem(RenderingSystem.class).draw(gameBatch, delta);
 		
 		rayHandler.setCombinedMatrix(SceneManager.getInstance().getGameCamera());
 		

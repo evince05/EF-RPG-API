@@ -56,8 +56,50 @@ public class MotionSystem extends IteratingSystem {
 		else {
 			motionComp.isMoving = false;
 		}
+	}
+	
+	/**
+	 * Sets the velocity of an entity. This will cause constant movement at the specified velocity,
+	 * until the entity's velocity is changed.
+	 */
+	
+	public void setEntityVelocity(Entity e, Vector2 vel) {
+		MotionComponent motionComp = MotionComponent.MAPPER.get(e);
 		
+		if (vel.x != 0 && vel.y != 0) {
+			vel.scl(1f / (float) Math.sqrt(2));
+		}
+		motionComp.velocity = vel;
+	}
+	
+	public void setEntityVelocity(Entity e, float moveX, float moveY) {
+		setEntityVelocity(e, new Vector2(moveX, moveY));
+	}
+	
+	/**
+	 * Moves the entity by x world units along the horizontal axis and
+	 * by y units along the vertical axis.
+	 * 
+	 * @param entity The entity to move.
+	 */
+	
+	public void moveEntity(Entity entity, float x, float y) {
+		moveEntity(entity, new Vector2(x, y));
+	}
+	
+	public void moveEntity(Entity entity, Vector2 deltaPos) {
+		PositionComponent posComp = PositionComponent.MAPPER.get(entity);
+		if (deltaPos.x == deltaPos.y) {
+			deltaPos.scl(1f /(float) Math.sqrt(2));
+		}
 		
+		posComp.position.add(deltaPos);
+		
+		for (Component c : entity.getComponents()) {
+			if (c instanceof TranslatableComponent) {
+				((TranslatableComponent) c).translate(deltaPos);
+			}
+		}
 	}
 
 }

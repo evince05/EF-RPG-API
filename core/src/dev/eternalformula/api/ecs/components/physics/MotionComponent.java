@@ -18,10 +18,13 @@ public class MotionComponent implements EFComponent {
 	public static final ComponentMapper<MotionComponent> MAPPER = 
 			ComponentMapper.getFor(MotionComponent.class);
 	
-	public static final int DIRECTION_UP = 1;
-	public static final int DIRECTION_LEFT = 2;
-	public static final int DIRECTION_RIGHT = 3;
-	public static final int DIRECTION_DOWN = 4;
+	public static final float DEFAULT_ENTITY_SPEED = 1f;
+	
+	/**
+	 * Simple speed scalar.
+	 */
+	
+	public float speed;
 	
 	/**
 	 * Velocity vector in the x and y directions; units m/s.
@@ -37,10 +40,8 @@ public class MotionComponent implements EFComponent {
 	
 	public boolean isMoving;
 	
-	private int direction;
-	
 	public MotionComponent() {
-		this.direction = DIRECTION_DOWN;
+		this.speed = DEFAULT_ENTITY_SPEED;
 		this.velocity = new Vector2(0f, 0f);
 		this.acceleration = new Vector2(0f, 0f);
 	}
@@ -69,14 +70,6 @@ public class MotionComponent implements EFComponent {
 	public void setAcceleration(float accelX, float accelY) {
 		this.acceleration.x = accelX;
 		this.acceleration.y = accelY;
-	}
-	
-	public int getDirection() {
-		return direction;
-	}
-	
-	public void setDirection(int direction) {
-		this.direction = direction;
 	}
 	
 	@Override
